@@ -1,8 +1,11 @@
 import "./globals.css";
+import { LearnovaProvider } from "@/components/LearnovaProvider";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "LearnNova",
-  description: "Modern Learning Management System",
+  title: { default: "Learnova — Learn Without Limits", template: "%s | Learnova" },
+  description: "Expert-led courses, practical projects, and a complete university learning experience.",
 };
 
 export default function RootLayout({
@@ -12,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><LearnovaProvider><a href="#main-content" className="skip-link">Skip to content</a><Header /><main id="main-content" className="min-h-[65vh]">{children}</main><Footer /></LearnovaProvider></body>
     </html>
   );
 }

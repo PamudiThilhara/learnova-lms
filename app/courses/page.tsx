@@ -1,256 +1,45 @@
 "use client";
-
-import { useMemo, useState } from "react";
-import Header from "@/components/Header";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Search, SlidersHorizontal, RotateCcw } from "lucide-react";
+import { useLearnova } from "@/components/LearnovaProvider";
 import CourseCard from "@/components/CourseCard";
-import {
-  Search,
-  SlidersHorizontal,
-  BookOpen,
-} from "lucide-react";
+import { categories, levels } from "@/data/courses";
+import { EmptyState, LoadingCards, PageHeader } from "@/components/ui";
+import { progressFor } from "@/lib/learnova-state";
 
-const courses = [
-  {
-    id: 1,
-    title: "Python",
-    category: "Programming",
-    description:
-      "Course covering coding with Python for beginners.",
-    price: "$23.00",
-    rating: "4.8",
-    image: "/images/python.jpg",
-  },
-  {
-    id: 2,
-    title: "UX Design",
-    category: "Design",
-    description:
-      "Learn modern UI and UX design principles and create beautiful interfaces.",
-    price: "$35.00",
-    rating: "4.8",
-    image: "/images/ux-design.jpg",
-  },
-  {
-    id: 3,
-    title: "Digital Marketing",
-    category: "Marketing",
-    description:
-      "Master digital marketing, social media strategies and online branding.",
-    price: "$73.00",
-    rating: "4.8",
-    image: "/images/digital-marketing.jpg",
-  },
-  {
-    id: 4,
-    title: "Python Advanced",
-    category: "Programming",
-    description:
-      "Improve your Python knowledge with advanced concepts and practical projects.",
-    price: "$40.00",
-    rating: "4.9",
-    image: "/images/python.jpg",
-  },
-  {
-    id: 5,
-    title: "UI/UX Design Masterclass",
-    category: "Design",
-    description:
-      "Learn professional interface design, wireframing and user experience principles.",
-    price: "$45.00",
-    rating: "4.7",
-    image: "/images/ux-design.jpg",
-  },
-  {
-    id: 6,
-    title: "Social Media Marketing",
-    category: "Marketing",
-    description:
-      "Learn how to create effective social media campaigns and grow online brands.",
-    price: "$50.00",
-    rating: "4.9",
-    image: "/images/digital-marketing.jpg",
-  },
-];
-
-const categories = [
-  "All",
-  "Programming",
-  "Design",
-  "Marketing",
-];
-
-export default function CoursesPage() {
-  const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] =
-    useState("All");
-
-  const filteredCourses = useMemo(() => {
-    return courses.filter((course) => {
-      const matchesSearch =
-        course.title
-          .toLowerCase()
-          .includes(search.toLowerCase()) ||
-        course.description
-          .toLowerCase()
-          .includes(search.toLowerCase());
-
-      const matchesCategory =
-        selectedCategory === "All" ||
-        course.category === selectedCategory;
-
-      return matchesSearch && matchesCategory;
-    });
-  }, [search, selectedCategory]);
-
-  return (
-    <main className="min-h-screen bg-[#f7fbff]">
-
-      {/* Header */}
-      <Header />
-
-      {/* Page Header */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-500">
-        <div className="mx-auto max-w-7xl px-6 py-14 text-white">
-
-          <div className="flex items-center gap-3">
-            <BookOpen size={34} />
-
-            <div>
-              <h1 className="text-4xl font-bold">
-                Courses Catalog
-              </h1>
-
-              <p className="mt-2 text-blue-100">
-                Explore our courses and start learning today.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className="mx-auto max-w-7xl px-6 py-12">
-
-        {/* Search Area */}
-        <div className="rounded-2xl border border-blue-100 bg-white p-5 shadow-sm">
-
-          <div className="flex flex-col gap-4 md:flex-row">
-
-            {/* Search */}
-            <div className="flex flex-1 items-center rounded-xl border border-blue-100 bg-slate-50 px-4">
-
-              <Search
-                size={19}
-                className="text-slate-400"
-              />
-
-              <input
-                type="text"
-                value={search}
-                onChange={(e) =>
-                  setSearch(e.target.value)
-                }
-                placeholder="Search courses..."
-                className="w-full bg-transparent px-4 py-3 outline-none"
-              />
-
-            </div>
-
-            {/* Filter button */}
-            <button className="flex items-center justify-center gap-2 rounded-xl border border-blue-200 bg-white px-6 py-3 font-medium text-blue-600 transition hover:bg-blue-50">
-
-              <SlidersHorizontal size={18} />
-
-              Filters
-
-            </button>
-
-          </div>
-
-          {/* Category Buttons */}
-          <div className="mt-5 flex flex-wrap gap-3">
-
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() =>
-                  setSelectedCategory(category)
-                }
-                className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
-                  selectedCategory === category
-                    ? "bg-blue-600 text-white"
-                    : "bg-blue-50 text-blue-600 hover:bg-blue-100"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-
-          </div>
-
-        </div>
-
-        {/* Results Information */}
-        <div className="mt-10 flex items-center justify-between">
-
-          <div>
-            <h2 className="text-2xl font-bold text-slate-900">
-              Available Courses
-            </h2>
-
-            <p className="mt-1 text-sm text-slate-500">
-              {filteredCourses.length} courses found
-            </p>
-          </div>
-
-          <select className="rounded-lg border border-blue-100 bg-white px-4 py-2 text-sm outline-none">
-            <option>Most Popular</option>
-            <option>Highest Rated</option>
-            <option>Lowest Price</option>
-            <option>Newest</option>
-          </select>
-
-        </div>
-
-        {/* Course Layout */}
-        <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-
-          {filteredCourses.map((course) => (
-            <CourseCard
-              key={course.id}
-              id={course.id}
-              title={course.title}
-              description={course.description}
-              price={course.price}
-              rating={course.rating}
-              image={course.image}
-            />
-          ))}
-
-        </div>
-
-        {/* No Results */}
-        {filteredCourses.length === 0 && (
-          <div className="py-20 text-center">
-
-            <div className="text-6xl">
-              🔍
-            </div>
-
-            <h3 className="mt-5 text-xl font-bold">
-              No courses found
-            </h3>
-
-            <p className="mt-2 text-slate-500">
-              Try another search or category.
-            </p>
-
-          </div>
-        )}
-
-      </section>
-
-    </main>
-  );
+function Catalog() {
+  const query = useSearchParams();
+  return <CatalogFilters key={query.toString()} initialSearch={query.get("q") ?? ""} initialCategory={query.get("category") ?? "All"} />;
 }
+function CatalogFilters({ initialSearch, initialCategory }: { initialSearch: string; initialCategory: string }) {
+  const { state, learning } = useLearnova();
+  const [search, setSearch] = useState(initialSearch);
+  const [category, setCategory] = useState(categories.some(c => c === initialCategory) ? initialCategory : "All");
+  const [level, setLevel] = useState("All");
+  const [sort, setSort] = useState("popular");
+  const [filtersOpen, setFiltersOpen] = useState(true);
+  const filtered = state.courses.filter(course =>
+    [course.title, course.description, course.instructor].join(" ").toLowerCase().includes(search.trim().toLowerCase()) &&
+    (category === "All" || course.category === category) && (level === "All" || course.level === level)
+  ).sort((a, b) => sort === "rating" ? b.rating - a.rating : sort === "price" ? a.price - b.price : sort === "newest" ? state.courses.indexOf(b) - state.courses.indexOf(a) : b.students - a.students);
+  function reset() { setSearch(""); setCategory("All"); setLevel("All"); setSort("popular"); }
+  return <>
+    <section className="border-b border-blue-100 bg-blue-50"><div className="container-page py-12"><PageHeader title="Explore Courses" eyebrow="Find your next skill" description="Expert-led lessons and practical projects. Find a course that fits your goals." /></div></section>
+    <section className="container-page py-10">
+      <div className="panel p-5">
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <label className="flex min-w-0 flex-1 items-center gap-3 rounded-xl border border-blue-100 bg-slate-50 px-4"><Search size={19} className="shrink-0 text-slate-400" /><span className="sr-only">Search courses</span><input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search courses or instructors..." className="min-w-0 w-full bg-transparent py-3 text-sm outline-none" /></label>
+          <button className="btn-secondary" onClick={() => setFiltersOpen(!filtersOpen)} aria-expanded={filtersOpen} aria-controls="course-filters"><SlidersHorizontal size={17} />Filters</button>
+        </div>
+        {filtersOpen && <div id="course-filters" className="mt-5 space-y-5">
+          <div><p className="field-label">Category</p><div className="flex flex-wrap gap-2">{["All", ...categories].map(item => <button key={item} onClick={() => setCategory(item)} aria-pressed={category === item} className={`rounded-full px-4 py-2 text-xs font-semibold transition ${category === item ? "bg-blue-600 text-white" : "bg-blue-50 text-blue-600 hover:bg-blue-100"}`}>{item}</button>)}</div></div>
+          <div className="flex flex-wrap items-end gap-4"><label className="w-full sm:w-52"><span className="field-label">Level</span><select className="field" value={level} onChange={e => setLevel(e.target.value)}>{["All", ...levels].map(item => <option key={item}>{item}</option>)}</select></label><button className="btn-secondary" onClick={reset}><RotateCcw size={16} />Reset filters</button></div>
+        </div>}
+      </div>
+      <div className="my-7 flex flex-wrap items-center justify-between gap-4"><p className="text-sm text-slate-500" aria-live="polite"><span className="font-bold text-slate-800">{filtered.length}</span> courses found</p><label className="flex items-center gap-3 text-sm text-slate-500">Sort by<select className="field w-auto" value={sort} onChange={e => setSort(e.target.value)}><option value="popular">Most Popular</option><option value="rating">Highest Rated</option><option value="price">Lowest Price</option><option value="newest">Newest</option></select></label></div>
+      {filtered.length ? <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">{filtered.map(course => <CourseCard key={course.id} course={course} progress={learning.enrollments[course.id] ? progressFor(course, learning) : undefined} />)}</div> : <EmptyState title="No courses found" description="Try a different search, category, or level." />}
+    </section>
+  </>;
+}
+export default function CoursesPage() { return <Suspense fallback={<LoadingCards />}><Catalog /></Suspense>; }
