@@ -17,7 +17,6 @@ export const categoryImages: Record<Category, string> = {
   "Data Science": "/images/python.jpg", "Personal Development": "/images/ux-design.jpg",
 };
 
-const pythonLessons = ["Introduction to Python", "Installing Python", "Variables and Data Types", "Operators", "Conditional Statements", "Loops", "Functions", "Lists and Dictionaries", "Object-Oriented Programming", "Final Project"];
 const pythonContent = [
   "Python is a readable, general-purpose programming language. A program is a sequence of instructions. Start with print('Hello, Learnova!') and observe the output. Indentation groups statements into blocks; keep indentation consistent.",
   "Install Python from its official distribution and verify the interpreter with python --version. Create a project folder and a virtual environment with python -m venv .venv. A virtual environment keeps project dependencies separate.",
@@ -39,28 +38,3 @@ export function makeLessons(titles: string[], topic: string): Lesson[] {
   }));
 }
 
-type Seed = [string, string, Category, Level, number, number, string, number, string, string[]];
-const seeds: Seed[] = [
-  ["1", "Python Programming", "Programming", "Beginner", 4.8, 1250, "8 weeks", 23, "Learn Python from the beginning through practical coding exercises and a final project.", pythonLessons],
-  ["2", "UI/UX Design", "Design", "Beginner", 4.8, 840, "6 weeks", 35, "Create thoughtful interfaces with research, wireframing, typography, and prototyping.", ["Understanding User Experience", "Design Principles", "User Research", "Wireframing", "Typography and Color", "Interactive Prototyping"]],
-  ["3", "Digital Marketing", "Marketing", "Beginner", 4.8, 920, "7 weeks", 73, "Build effective campaigns with content strategy, SEO, social media, and analytics.", ["Marketing Fundamentals", "Audience Research", "Content Strategy", "Social Media Campaigns", "SEO Basics", "Campaign Analytics"]],
-  ["4", "Python Advanced", "Programming", "Advanced", 4.9, 630, "8 weeks", 40, "Deepen your Python skills with advanced concepts, testing, and practical projects.", ["Advanced Collections", "Generators", "Decorators", "Error Handling", "Testing", "Project Architecture"]],
-  ["5", "UI/UX Design Masterclass", "Design", "Advanced", 4.7, 480, "8 weeks", 45, "Develop professional design systems and accessible product experiences.", ["Product Discovery", "Research Synthesis", "Design Systems", "Accessibility", "Usability Testing", "Portfolio Project"]],
-  ["6", "Social Media Marketing", "Marketing", "Intermediate", 4.9, 710, "5 weeks", 50, "Create social campaigns that connect with audiences and grow online brands.", ["Brand Voice", "Content Planning", "Community Management", "Paid Campaigns", "Analytics", "Campaign Project"]],
-  ["7", "Web Development", "Programming", "Beginner", 4.8, 1100, "10 weeks", 39, "Build responsive websites using HTML, CSS, and JavaScript.", ["How the Web Works", "Semantic HTML", "CSS Layouts", "Responsive Design", "JavaScript Fundamentals", "Website Project"]],
-  ["8", "Data Science Fundamentals", "Data Science", "Beginner", 4.7, 760, "8 weeks", 49, "Turn raw data into clear insights with analysis and visualization.", ["Asking Data Questions", "Data Collection", "Cleaning Data", "Exploratory Analysis", "Visualization", "Communicating Insights"]],
-  ["9", "React Development", "Programming", "Intermediate", 4.9, 890, "8 weeks", 55, "Create interactive applications with components, state, and reusable patterns.", ["Components and JSX", "Props", "State and Events", "Forms", "Data and Effects", "Application Project"]],
-  ["10", "Graphic Design", "Design", "Beginner", 4.7, 560, "6 weeks", 29, "Develop visual communication skills through composition, color, and typography.", ["Visual Hierarchy", "Composition", "Color Theory", "Typography", "Brand Identity", "Design Portfolio"]],
-  ["11", "Business Analytics", "Business", "Intermediate", 4.8, 420, "7 weeks", 45, "Use evidence and practical analysis to make better business decisions.", ["Business Questions", "Performance Metrics", "Spreadsheet Analysis", "Forecasting", "Decision Making", "Business Case"]],
-  ["12", "Machine Learning Basics", "Data Science", "Intermediate", 4.8, 690, "9 weeks", 59, "Understand models, training data, evaluation, and responsible experimentation.", ["Learning from Data", "Preparing Datasets", "Regression", "Classification", "Model Evaluation", "Capstone Experiment"]],
-  ["13", "Learning and Time Management", "Personal Development", "Beginner", 4.9, 350, "4 weeks", 19, "Build sustainable study habits and plan your learning with confidence.", ["Setting Goals", "Planning Your Week", "Active Recall", "Focus and Breaks", "Reflective Practice", "Personal Learning Plan"]],
-];
-
-export const courses: Course[] = seeds.map(([id, title, category, level, rating, students, duration, price, description, lessonTitles]) => ({
-  id, title, category, level, rating, students, duration, price, description,
-  image: categoryImages[category],
-  instructor: category === "Design" ? "Sarah Williams" : category === "Marketing" || category === "Business" ? "Michael Brown" : "Dr. Alex Johnson",
-  instructorId: category === "Design" ? "instructor-2" : category === "Marketing" || category === "Business" ? "instructor-3" : "instructor-1",
-  outcomes: [`Understand the core concepts of ${title.toLowerCase()}`, "Apply your skills through practical exercises", "Evaluate your work and improve with feedback", "Complete a project you can share in your portfolio"],
-  lessons: makeLessons(lessonTitles, title),
-}));

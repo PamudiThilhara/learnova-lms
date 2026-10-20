@@ -1,57 +1,99 @@
 "use client";
 
-import { createContext, useContext, useEffect, useReducer, type Dispatch, type ReactNode } from "react";
-import { users, type User } from "@/data/users";
-import { emptyLearning, initialState, reducer, type Action, type AppState, type DemoData, type Learning } from "@/lib/learnova-state";
+import { createContext, useCallback, useContext, useEffect, useReducer, useRef, type ReactNode } from 'react';
+import type { User, Role } from '@/data/users';
+import type { Question } from '@/data/learning';
+import { api, apiLogin, apiState, ApiError, errorMessage } from '@/lib/api';
+import { emptyLearning, initialState, reducer, type Action, type AppState, type Learning } from '@/lib/learnova-state';
 
-const DATA_KEY = "learnova.frontend.v1";
-const SESSION_KEY = "learnova.session.v1";
-type Context = { state: AppState; dispatch: Dispatch<Action>; user: User | null; learner: User; learning: Learning; login: (email: string, remember: boolean) => User | null; logout: () => void; rememberUser: (id: string, remember: boolean) => void };
+type Result = { ok: boolean; review?: Question[] };
+type Context = {
+  state: AppState; dispatch: (action: Action, file?: File) => Promise<Result>;
+  user: User | null; learner: User; learning: Learning;
+  login: (email: string, password: string, remember: boolean) => Promise<User>;
+  register: (input: { name: string; email: string; password: string; role: Role; terms: boolean }) => Promise<User>;
+  logout: () => Promise<boolean>; refresh: () => Promise<void>;
+};
 const LearnovaContext = createContext<Context | null>(null);
-function isDemoData(value: unknown): value is DemoData {
-  if (!value || typeof value !== "object") return false;
-  const candidate = value as DemoData;
-  return Array.isArray(candidate.courses) && candidate.courses.every(c => typeof c.id === "string" && typeof c.title === "string" && Array.isArray(c.lessons) && Array.isArray(c.outcomes)) && Array.isArray(candidate.users) && candidate.users.every(u => typeof u.id === "string" && typeof u.email === "string" && ["student", "instructor", "admin"].includes(u.role)) && !!candidate.learning && typeof candidate.learning === "object" && Object.values(candidate.learning).every(l => !!l && typeof l.enrollments === "object" && typeof l.quizzes === "object" && typeof l.submissions === "object") && Array.isArray(candidate.activity) && typeof candidate.settings?.notifications === "boolean" && typeof candidate.settings?.weeklyDigest === "boolean";
-}
+const guest: User = { id: '', name: '', email: '', role: 'student', phone: '', bio: '', avatar: '', status: 'Active', joined: new Date(0).toISOString() };
 
 export function LearnovaProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, undefined, initialState);
-  useEffect(() => {
-    let data: DemoData = initialState(); let activeId: string | null = null;
-    try {
-      const saved = localStorage.getItem(DATA_KEY);
-      if (saved) { const parsed: unknown = JSON.parse(saved); if (isDemoData(parsed)) data = parsed; }
-      const session = sessionStorage.getItem(SESSION_KEY) ?? localStorage.getItem(SESSION_KEY);
-      if (data.users.some(u => u.id === session && u.status === "Active")) activeId = session;
-    } catch { dispatch({ type: "warning", message: "Browser storage is unavailable. You can still use this preview, but changes may not survive a refresh." }); }
-    dispatch({ type: "hydrate", data, activeId });
+  const [state, reduce] = useReducer(reducer, undefined, initialState);
+  const version = useRef(0);
+  const queue = useRef<Promise<unknown>>(Promise.resolve());
+  const refresh = useCallback(async () => {
+    const sequence = ++version.current;
+    const data = await apiState();
+    if (sequence === version.current) reduce({ type: 'hydrate', data, activeId: data.activeId });
   }, []);
   useEffect(() => {
-    if (!state.ready) return;
-    try { const { courses, users, learning, activity, settings } = state; localStorage.setItem(DATA_KEY, JSON.stringify({ courses, users, learning, activity, settings })); }
-    catch { dispatch({ type: "warning", message: "These changes could not be saved in browser storage. Keep this tab open or remove large profile images." }); }
-  }, [state]);
-
-  function rememberUser(id: string, remember: boolean) {
-    try { localStorage.removeItem(SESSION_KEY); sessionStorage.removeItem(SESSION_KEY); (remember ? localStorage : sessionStorage).setItem(SESSION_KEY, id); }
-    catch { dispatch({ type: "warning", message: "Your session cannot be remembered in this browser." }); }
+    try { localStorage.removeItem('learnova.frontend.v1'); localStorage.removeItem('learnova.session.v1'); sessionStorage.removeItem('learnova.session.v1'); } catch {}
+    void refresh().catch(error => { reduce({ type: 'hydrate', data: initialState(), activeId: null }); reduce({ type: 'warning', message: errorMessage(error) }); });
+    const sync = () => { void refresh().catch(error => reduce({ type: 'warning', message: errorMessage(error) })); };
+    window.addEventListener('focus', sync);
+    return () => window.removeEventListener('focus', sync);
+  }, [refresh]);
+  async function login(email: string, password: string, remember: boolean) {
+    const { user } = await apiLogin(email, password, remember); await refresh(); return user;
   }
-  function login(email: string, remember: boolean) {
-    const found = state.users.find(u => u.email.toLowerCase() === email.trim().toLowerCase() && u.status === "Active");
-    if (!found) return null;
-    rememberUser(found.id, remember); dispatch({ type: "login", id: found.id }); return found;
+  async function register(input: { name: string; email: string; password: string; role: Role; terms: boolean }) {
+    const { user } = await api<{ user: User }>('/auth/register', { method: 'POST', body: JSON.stringify(input) }); await refresh(); return user;
   }
-  function logout() {
-    try { localStorage.removeItem(SESSION_KEY); sessionStorage.removeItem(SESSION_KEY); } catch { /* The current tab can still sign out. */ }
-    dispatch({ type: "logout" });
+  async function logout() {
+    try {
+      await api('/auth/logout', { method: 'POST' });
+      ++version.current;
+      reduce({ type: 'hydrate', data: initialState(), activeId: null });
+      await refresh().catch(error => reduce({ type: 'warning', message: errorMessage(error) }));
+      return true;
+    }
+    catch (error) { reduce({ type: 'warning', message: errorMessage(error) }); return false; }
   }
-  const user = state.users.find(u => u.id === state.activeId && u.status === "Active") ?? null;
-  const learner = user?.role === "student" ? user : state.users.find(u => u.id === "student-1") ?? users[0];
+  function dispatch(action: Action, file?: File): Promise<Result> {
+    const run = async (): Promise<Result> => {
+      if (action.type === 'warning') { reduce(action); return { ok: true }; }
+      let path = ''; let method = 'POST'; let body: unknown; let form: FormData | undefined;
+      const coursePath = 'courseId' in action ? `/courses/${encodeURIComponent(action.courseId)}` : '';
+      switch (action.type) {
+        case 'profile': path = '/auth/me'; method = 'PATCH'; body = action.user; break;
+        case 'enroll': path = `${coursePath}/enrollments`; break;
+        case 'complete': path = `${coursePath}/lessons/${encodeURIComponent(action.lessonId)}/completion`; method = 'PUT'; break;
+        case 'quiz': path = `${coursePath}/quiz-attempts`; body = { answers: action.attempt.answers }; break;
+        case 'submit':
+          path = `${coursePath}/submission`; method = 'PUT'; form = new FormData();
+          form.set('text', action.submission.text); form.set('removeFile', String(!action.submission.fileName));
+          if (file) form.set('file', file); break;
+        case 'grade': path = `${coursePath}/submissions/${encodeURIComponent(action.userId)}/grade`; method = 'PATCH'; body = { marks: action.marks, feedback: action.feedback }; break;
+        case 'save-course':
+          path = state.courses.some(c => c.id === action.course.id) ? `/courses/${encodeURIComponent(action.course.id)}` : '/courses';
+          method = path === '/courses' ? 'POST' : 'PUT'; body = action.course; break;
+        case 'delete-course': path = `/courses/${encodeURIComponent(action.id)}`; method = 'DELETE'; break;
+        case 'user-status': path = `/admin/users/${encodeURIComponent(action.id)}/status`; method = 'PATCH'; break;
+        case 'delete-user': path = `/admin/users/${encodeURIComponent(action.id)}`; method = 'DELETE'; break;
+        case 'settings': path = '/admin/settings'; method = 'PUT'; body = action.settings; break;
+        case 'reset': path = '/admin/sample-data'; break;
+        default: return { ok: false };
+      }
+      try {
+        const response = await api<{ review?: Question[] }>(path, { method, ...(form ? { body: form } : body ? { body: JSON.stringify(body) } : {}) });
+        await refresh(); reduce({ type: 'warning', message: '' });
+        return { ok: true, review: response.review };
+      } catch (error) {
+        if (error instanceof ApiError && error.status === 401) await refresh().catch(() => {});
+        reduce({ type: 'warning', message: errorMessage(error) });
+        if (typeof window !== 'undefined') window.alert(errorMessage(error));
+        return { ok: false };
+      }
+    };
+    const result = queue.current.then(run, run); queue.current = result; return result;
+  }
+  const user = state.users.find(u => u.id === state.activeId && u.status === 'Active') ?? null;
+  const learner = user ?? guest;
   const learning = state.learning[learner.id] ?? emptyLearning();
-  return <LearnovaContext.Provider value={{ state, dispatch, user, learner, learning, login, logout, rememberUser }}>{children}</LearnovaContext.Provider>;
+  return <LearnovaContext.Provider value={{ state, dispatch, user, learner, learning, login, register, logout, refresh }}>{children}</LearnovaContext.Provider>;
 }
 export function useLearnova() {
   const context = useContext(LearnovaContext);
-  if (!context) throw new Error("useLearnova must be used inside LearnovaProvider");
+  if (!context) throw new Error('useLearnova must be used inside LearnovaProvider');
   return context;
 }

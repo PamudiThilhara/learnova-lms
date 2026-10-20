@@ -14,7 +14,7 @@ export default function Header() {
   const dashboard = dashboardPath(user?.role);
   const links = [["Home", "/"], ["Courses", "/courses"], ["Dashboard", dashboard], ["About", "/about"], ["Contact", "/contact"]];
   const close = () => { setMobileOpen(false); setProfileOpen(false); };
-  const signOut = () => { logout(); close(); router.push("/"); };
+  const signOut = async () => { if (await logout()) { close(); router.push("/"); } };
   return <header className="site-header sticky top-0 z-40 border-b border-blue-100 bg-white/95 backdrop-blur">
     <div className="container-page flex min-h-20 items-center justify-between gap-4">
       <Brand />

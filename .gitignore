@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# Isolated integration-test build
+/.next-integration/
+!.env.example
