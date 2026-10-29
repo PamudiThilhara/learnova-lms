@@ -1,0 +1,2479 @@
+{
+  "users": [
+    {
+      "id": "student-1",
+      "name": "Aisha Perera",
+      "email": "student@learnova.demo",
+      "role": "student",
+      "phone": "",
+      "bio": "Computer science student. Learning something new every day.",
+      "avatar": "",
+      "status": "Active",
+      "joined": "2026-09-01"
+    },
+    {
+      "id": "student-2",
+      "name": "Daniel Silva",
+      "email": "daniel@learnova.demo",
+      "role": "student",
+      "phone": "",
+      "bio": "Interested in design and technology.",
+      "avatar": "",
+      "status": "Active",
+      "joined": "2026-09-12"
+    },
+    {
+      "id": "instructor-1",
+      "name": "Dr. Alex Johnson",
+      "email": "instructor@learnova.demo",
+      "role": "instructor",
+      "phone": "",
+      "bio": "Teaching programming and data science through practical projects.",
+      "avatar": "",
+      "status": "Active",
+      "joined": "2026-08-15"
+    },
+    {
+      "id": "instructor-2",
+      "name": "Sarah Williams",
+      "email": "sarah@learnova.demo",
+      "role": "instructor",
+      "phone": "",
+      "bio": "Designer and educator focused on accessible experiences.",
+      "avatar": "",
+      "status": "Active",
+      "joined": "2026-08-20"
+    },
+    {
+      "id": "instructor-3",
+      "name": "Michael Brown",
+      "email": "michael@learnova.demo",
+      "role": "instructor",
+      "phone": "",
+      "bio": "Marketing educator helping learners build effective campaigns.",
+      "avatar": "",
+      "status": "Active",
+      "joined": "2026-08-22"
+    },
+    {
+      "id": "admin-1",
+      "name": "Learnova Administrator",
+      "email": "admin@learnova.demo",
+      "role": "admin",
+      "phone": "",
+      "bio": "Supporting the Learnova learning community.",
+      "avatar": "",
+      "status": "Active",
+      "joined": "2026-08-01"
+    }
+  ],
+  "courses": [
+    {
+      "id": "1",
+      "title": "Python Programming",
+      "category": "Programming",
+      "level": "Beginner",
+      "rating": 4.8,
+      "students": 0,
+      "duration": "8 weeks",
+      "price": 23,
+      "description": "Learn Python from the beginning through practical coding exercises and a final project.",
+      "image": "/images/python.jpg",
+      "instructor": "Dr. Alex Johnson",
+      "instructorId": "instructor-1",
+      "outcomes": [
+        "Understand the core concepts of python programming",
+        "Apply your skills through practical exercises",
+        "Evaluate your work and improve with feedback",
+        "Complete a project you can share in your portfolio"
+      ],
+      "lessons": [
+        {
+          "id": "1",
+          "title": "Introduction to Python",
+          "duration": "20 min",
+          "content": "Python is a readable, general-purpose programming language. A program is a sequence of instructions. Start with print('Hello, Learnova!') and observe the output. Indentation groups statements into blocks; keep indentation consistent.",
+          "exercise": "Create a small example that demonstrates introduction to python. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "2",
+          "title": "Installing Python",
+          "duration": "25 min",
+          "content": "Install Python from its official distribution and verify the interpreter with python --version. Create a project folder and a virtual environment with python -m venv .venv. A virtual environment keeps project dependencies separate.",
+          "exercise": "Create a small example that demonstrates installing python. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "3",
+          "title": "Variables and Data Types",
+          "duration": "30 min",
+          "content": "Variables give names to values: name = 'Aisha', age = 20, and enrolled = True. Common types include strings, integers, floats, and booleans. Use type(value) to inspect a type and explicit conversions such as int('20') when appropriate.",
+          "exercise": "Create a small example that demonstrates variables and data types. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "4",
+          "title": "Operators",
+          "duration": "35 min",
+          "content": "Arithmetic operators include +, -, *, /, //, and %. Comparisons such as == and > return booleans. Combine conditions with and, or, and not. Use parentheses to make the order of evaluation clear.",
+          "exercise": "Create a small example that demonstrates operators. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "5",
+          "title": "Conditional Statements",
+          "duration": "40 min",
+          "content": "Use if, elif, and else to choose a branch. Each condition ends with a colon, followed by an indented block. For example, if score >= 70: can select a passing message. Test values at the boundary as well as values on either side.",
+          "exercise": "Create a small example that demonstrates conditional statements. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "6",
+          "title": "Loops",
+          "duration": "45 min",
+          "content": "A for loop visits items in a sequence, while a while loop repeats as long as its condition is true. range(5) produces numbers from 0 to 4. Update the condition of a while loop to avoid an infinite loop.",
+          "exercise": "Create a small example that demonstrates loops. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "7",
+          "title": "Functions",
+          "duration": "50 min",
+          "content": "Define reusable behavior with def. Parameters receive input and return sends a result to the caller. A function should have a clear purpose. For example, def total(a, b): followed by return a + b adds two numbers.",
+          "exercise": "Create a small example that demonstrates functions. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "8",
+          "title": "Lists and Dictionaries",
+          "duration": "55 min",
+          "content": "Lists are ordered collections, such as scores = [75, 90, 82]. Indexes begin at zero. Dictionaries associate keys with values, such as student = {'name': 'Aisha', 'score': 90}. Choose a list for a sequence and a dictionary for named lookup.",
+          "exercise": "Create a small example that demonstrates lists and dictionaries. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "9",
+          "title": "Object-Oriented Programming",
+          "duration": "60 min",
+          "content": "A class groups related data and behavior. __init__ initializes an instance and self refers to that instance. Model a Student with a name and scores, then add a method that calculates the average. Keep methods focused and avoid unnecessary inheritance.",
+          "exercise": "Create a small example that demonstrates object-oriented programming. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "10",
+          "title": "Final Project",
+          "duration": "65 min",
+          "content": "Bring the course concepts together in a command-line learning tracker. Accept input, validate it, store course information in a dictionary, and calculate completion. Split behavior into functions and test invalid input as well as the normal path.",
+          "exercise": "Create a small example that demonstrates final project. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Which function displays output in Python?",
+          "options": [
+            "print()",
+            "show()",
+            "echo()",
+            "display()"
+          ],
+          "answer": 0,
+          "explanation": "print() sends text and values to the output."
+        },
+        {
+          "question": "Which command checks the installed Python version?",
+          "options": [
+            "python --version",
+            "python install",
+            "python --name",
+            "python run"
+          ],
+          "answer": 0,
+          "explanation": "The --version option displays the interpreter version."
+        },
+        {
+          "question": "Which value is a string?",
+          "options": [
+            "42",
+            "True",
+            "'Learnova'",
+            "3.14"
+          ],
+          "answer": 2,
+          "explanation": "Text enclosed in quotes is a string."
+        },
+        {
+          "question": "Which operator checks equality?",
+          "options": [
+            "=",
+            "==",
+            "+=",
+            "=>"
+          ],
+          "answer": 1,
+          "explanation": "== compares values; = assigns a value."
+        },
+        {
+          "question": "Which keyword starts a conditional branch?",
+          "options": [
+            "for",
+            "def",
+            "if",
+            "class"
+          ],
+          "answer": 2,
+          "explanation": "if evaluates a condition to select a branch."
+        },
+        {
+          "question": "What values does range(3) produce?",
+          "options": [
+            "1, 2, 3",
+            "0, 1, 2",
+            "0, 1, 2, 3",
+            "3 only"
+          ],
+          "answer": 1,
+          "explanation": "range starts at zero and excludes the stop value."
+        },
+        {
+          "question": "Which keyword defines a function?",
+          "options": [
+            "def",
+            "function",
+            "func",
+            "return"
+          ],
+          "answer": 0,
+          "explanation": "def declares a named Python function."
+        },
+        {
+          "question": "Which list index refers to the first item?",
+          "options": [
+            "1",
+            "-2",
+            "0",
+            "2"
+          ],
+          "answer": 2,
+          "explanation": "Python lists use zero-based indexing."
+        },
+        {
+          "question": "Which structure associates keys with values?",
+          "options": [
+            "String",
+            "Dictionary",
+            "Boolean",
+            "Integer"
+          ],
+          "answer": 1,
+          "explanation": "A dictionary maps keys to corresponding values."
+        },
+        {
+          "question": "What does self refer to in an instance method?",
+          "options": [
+            "The current instance",
+            "The module",
+            "A global variable",
+            "The interpreter"
+          ],
+          "answer": 0,
+          "explanation": "self is the instance on which the method is called."
+        }
+      ],
+      "assignment": {
+        "id": "assignment-1",
+        "courseId": "1",
+        "title": "Python Programming: Practical Project",
+        "due": "2026-10-21",
+        "instructions": "Create a practical project applying the concepts from Python Programming. Describe the problem, explain your approach, and include evidence of your result. Submit a 200–500 word reflection and optionally attach your project. Assessment: understanding (40%), practical application (40%), and clarity (20%)."
+      }
+    },
+    {
+      "id": "2",
+      "title": "UI/UX Design",
+      "category": "Design",
+      "level": "Beginner",
+      "rating": 4.8,
+      "students": 0,
+      "duration": "6 weeks",
+      "price": 35,
+      "description": "Create thoughtful interfaces with research, wireframing, typography, and prototyping.",
+      "image": "/images/ux-design.jpg",
+      "instructor": "Sarah Williams",
+      "instructorId": "instructor-2",
+      "outcomes": [
+        "Understand the core concepts of ui/ux design",
+        "Apply your skills through practical exercises",
+        "Evaluate your work and improve with feedback",
+        "Complete a project you can share in your portfolio"
+      ],
+      "lessons": [
+        {
+          "id": "1",
+          "title": "Understanding User Experience",
+          "duration": "20 min",
+          "content": "Understanding User Experience is part of building a solid foundation in UI/UX Design. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates understanding user experience. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "2",
+          "title": "Design Principles",
+          "duration": "25 min",
+          "content": "Design Principles is part of building a solid foundation in UI/UX Design. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates design principles. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "3",
+          "title": "User Research",
+          "duration": "30 min",
+          "content": "User Research is part of building a solid foundation in UI/UX Design. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates user research. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "4",
+          "title": "Wireframing",
+          "duration": "35 min",
+          "content": "Wireframing is part of building a solid foundation in UI/UX Design. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates wireframing. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "5",
+          "title": "Typography and Color",
+          "duration": "40 min",
+          "content": "Typography and Color is part of building a solid foundation in UI/UX Design. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates typography and color. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "6",
+          "title": "Interactive Prototyping",
+          "duration": "45 min",
+          "content": "Interactive Prototyping is part of building a solid foundation in UI/UX Design. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates interactive prototyping. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the purpose of user research?",
+          "options": [
+            "Understand user needs",
+            "Choose random colors",
+            "Skip testing",
+            "Add more screens"
+          ],
+          "answer": 0,
+          "explanation": "Research grounds design decisions in user needs."
+        },
+        {
+          "question": "What does a wireframe describe?",
+          "options": [
+            "Final code",
+            "Layout and structure",
+            "Server settings",
+            "Payment details"
+          ],
+          "answer": 1,
+          "explanation": "Wireframes explore the structure before visual polish."
+        },
+        {
+          "question": "What does visual hierarchy guide?",
+          "options": [
+            "File size",
+            "Server speed",
+            "Attention",
+            "Passwords"
+          ],
+          "answer": 2,
+          "explanation": "Hierarchy helps people notice and understand information."
+        },
+        {
+          "question": "Which is an accessibility practice?",
+          "options": [
+            "Tiny text",
+            "Color-only labels",
+            "Hidden controls",
+            "Clear labels and contrast"
+          ],
+          "answer": 3,
+          "explanation": "Labels and readable contrast support more users."
+        },
+        {
+          "question": "What is a prototype?",
+          "options": [
+            "A testable representation of a design",
+            "A finished database",
+            "A font license",
+            "A user password"
+          ],
+          "answer": 0,
+          "explanation": "Prototypes let you test interactions before implementation."
+        },
+        {
+          "question": "Why use a design system?",
+          "options": [
+            "To avoid consistency",
+            "To reuse coherent patterns",
+            "To eliminate research",
+            "To hide navigation"
+          ],
+          "answer": 1,
+          "explanation": "Shared components and rules improve consistency."
+        },
+        {
+          "question": "What does usability testing observe?",
+          "options": [
+            "Only colors",
+            "Only file names",
+            "People completing tasks",
+            "Only page count"
+          ],
+          "answer": 2,
+          "explanation": "Testing reveals how people use a design."
+        },
+        {
+          "question": "What makes typography readable?",
+          "options": [
+            "Very small text",
+            "Crowded lines",
+            "Many fonts",
+            "Clear size and spacing"
+          ],
+          "answer": 3,
+          "explanation": "Readable type supports comprehension."
+        },
+        {
+          "question": "What should feedback after an action do?",
+          "options": [
+            "Explain its result",
+            "Disappear instantly",
+            "Hide errors",
+            "Change every layout"
+          ],
+          "answer": 0,
+          "explanation": "Feedback confirms what happened and what comes next."
+        },
+        {
+          "question": "What should a portfolio case study explain?",
+          "options": [
+            "Only screenshots",
+            "Problem, decisions, and outcomes",
+            "Only a logo",
+            "Only tools used"
+          ],
+          "answer": 1,
+          "explanation": "Case studies show the reasoning behind a design."
+        }
+      ],
+      "assignment": {
+        "id": "assignment-2",
+        "courseId": "2",
+        "title": "UI/UX Design: Practical Project",
+        "due": "2026-10-21",
+        "instructions": "Create a practical project applying the concepts from UI/UX Design. Describe the problem, explain your approach, and include evidence of your result. Submit a 200–500 word reflection and optionally attach your project. Assessment: understanding (40%), practical application (40%), and clarity (20%)."
+      }
+    },
+    {
+      "id": "3",
+      "title": "Digital Marketing",
+      "category": "Marketing",
+      "level": "Beginner",
+      "rating": 4.8,
+      "students": 0,
+      "duration": "7 weeks",
+      "price": 73,
+      "description": "Build effective campaigns with content strategy, SEO, social media, and analytics.",
+      "image": "/images/digital-marketing.jpg",
+      "instructor": "Michael Brown",
+      "instructorId": "instructor-3",
+      "outcomes": [
+        "Understand the core concepts of digital marketing",
+        "Apply your skills through practical exercises",
+        "Evaluate your work and improve with feedback",
+        "Complete a project you can share in your portfolio"
+      ],
+      "lessons": [
+        {
+          "id": "1",
+          "title": "Marketing Fundamentals",
+          "duration": "20 min",
+          "content": "Marketing Fundamentals is part of building a solid foundation in Digital Marketing. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates marketing fundamentals. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "2",
+          "title": "Audience Research",
+          "duration": "25 min",
+          "content": "Audience Research is part of building a solid foundation in Digital Marketing. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates audience research. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "3",
+          "title": "Content Strategy",
+          "duration": "30 min",
+          "content": "Content Strategy is part of building a solid foundation in Digital Marketing. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates content strategy. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "4",
+          "title": "Social Media Campaigns",
+          "duration": "35 min",
+          "content": "Social Media Campaigns is part of building a solid foundation in Digital Marketing. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates social media campaigns. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "5",
+          "title": "SEO Basics",
+          "duration": "40 min",
+          "content": "SEO Basics is part of building a solid foundation in Digital Marketing. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates seo basics. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "6",
+          "title": "Campaign Analytics",
+          "duration": "45 min",
+          "content": "Campaign Analytics is part of building a solid foundation in Digital Marketing. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates campaign analytics. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What comes before a marketing campaign?",
+          "options": [
+            "Audience and goal definition",
+            "Random posting",
+            "Deleting metrics",
+            "Ignoring the product"
+          ],
+          "answer": 0,
+          "explanation": "Audience and goals guide a campaign."
+        },
+        {
+          "question": "What is a target audience?",
+          "options": [
+            "Every website",
+            "The people a campaign aims to reach",
+            "A font",
+            "A schedule only"
+          ],
+          "answer": 1,
+          "explanation": "A target audience is a defined group of people."
+        },
+        {
+          "question": "What does SEO help improve?",
+          "options": [
+            "Office layout",
+            "Password strength",
+            "Search visibility",
+            "File storage"
+          ],
+          "answer": 2,
+          "explanation": "SEO helps relevant content be discovered in search."
+        },
+        {
+          "question": "Which metric measures engagement?",
+          "options": [
+            "File size",
+            "Screen width",
+            "A username",
+            "Comments and shares"
+          ],
+          "answer": 3,
+          "explanation": "Interactions are signals of audience engagement."
+        },
+        {
+          "question": "What is a call to action?",
+          "options": [
+            "A prompt to take a next step",
+            "A hidden link",
+            "A logo only",
+            "A file format"
+          ],
+          "answer": 0,
+          "explanation": "A call to action helps people know what to do next."
+        },
+        {
+          "question": "Why maintain a content calendar?",
+          "options": [
+            "To avoid planning",
+            "To organize publishing",
+            "To hide campaigns",
+            "To skip review"
+          ],
+          "answer": 1,
+          "explanation": "Calendars align content with timing and goals."
+        },
+        {
+          "question": "What is brand voice?",
+          "options": [
+            "Audio volume",
+            "A browser setting",
+            "A consistent communication style",
+            "A file name"
+          ],
+          "answer": 2,
+          "explanation": "Brand voice describes how a brand communicates."
+        },
+        {
+          "question": "What should campaign evaluation compare?",
+          "options": [
+            "Only colors",
+            "Only length",
+            "Only images",
+            "Results against goals"
+          ],
+          "answer": 3,
+          "explanation": "Evaluation compares outcomes with intended goals."
+        },
+        {
+          "question": "What is A/B testing?",
+          "options": [
+            "Comparing two variations",
+            "Posting twice randomly",
+            "Removing analytics",
+            "Copying a competitor"
+          ],
+          "answer": 0,
+          "explanation": "A/B tests compare variations using a defined outcome."
+        },
+        {
+          "question": "What supports trust in marketing?",
+          "options": [
+            "Unsupported promises",
+            "Clear and accurate claims",
+            "Hidden terms",
+            "Misleading prices"
+          ],
+          "answer": 1,
+          "explanation": "Honest, understandable communication builds trust."
+        }
+      ],
+      "assignment": {
+        "id": "assignment-3",
+        "courseId": "3",
+        "title": "Digital Marketing: Practical Project",
+        "due": "2026-10-21",
+        "instructions": "Create a practical project applying the concepts from Digital Marketing. Describe the problem, explain your approach, and include evidence of your result. Submit a 200–500 word reflection and optionally attach your project. Assessment: understanding (40%), practical application (40%), and clarity (20%)."
+      }
+    },
+    {
+      "id": "4",
+      "title": "Python Advanced",
+      "category": "Programming",
+      "level": "Advanced",
+      "rating": 4.9,
+      "students": 0,
+      "duration": "8 weeks",
+      "price": 40,
+      "description": "Deepen your Python skills with advanced concepts, testing, and practical projects.",
+      "image": "/images/python.jpg",
+      "instructor": "Dr. Alex Johnson",
+      "instructorId": "instructor-1",
+      "outcomes": [
+        "Understand the core concepts of python advanced",
+        "Apply your skills through practical exercises",
+        "Evaluate your work and improve with feedback",
+        "Complete a project you can share in your portfolio"
+      ],
+      "lessons": [
+        {
+          "id": "1",
+          "title": "Advanced Collections",
+          "duration": "20 min",
+          "content": "Advanced Collections is part of building a solid foundation in Python Advanced. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates advanced collections. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "2",
+          "title": "Generators",
+          "duration": "25 min",
+          "content": "Generators is part of building a solid foundation in Python Advanced. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates generators. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "3",
+          "title": "Decorators",
+          "duration": "30 min",
+          "content": "Decorators is part of building a solid foundation in Python Advanced. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates decorators. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "4",
+          "title": "Error Handling",
+          "duration": "35 min",
+          "content": "Error Handling is part of building a solid foundation in Python Advanced. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates error handling. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "5",
+          "title": "Testing",
+          "duration": "40 min",
+          "content": "Testing is part of building a solid foundation in Python Advanced. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates testing. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "6",
+          "title": "Project Architecture",
+          "duration": "45 min",
+          "content": "Project Architecture is part of building a solid foundation in Python Advanced. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates project architecture. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is a variable used for?",
+          "options": [
+            "Naming a value",
+            "Styling a screen",
+            "Deleting a file",
+            "Measuring a monitor"
+          ],
+          "answer": 0,
+          "explanation": "Variables give names to values used by a program."
+        },
+        {
+          "question": "Why use a function?",
+          "options": [
+            "To duplicate code",
+            "To group reusable behavior",
+            "To remove input",
+            "To hide every error"
+          ],
+          "answer": 1,
+          "explanation": "Functions make a focused behavior reusable."
+        },
+        {
+          "question": "Which structure repeats a task?",
+          "options": [
+            "Comment",
+            "Constant",
+            "Loop",
+            "Import"
+          ],
+          "answer": 2,
+          "explanation": "Loops repeat statements over items or conditions."
+        },
+        {
+          "question": "What is a boolean value?",
+          "options": [
+            "An image",
+            "A list",
+            "A font",
+            "True or false"
+          ],
+          "answer": 3,
+          "explanation": "Booleans represent truth values."
+        },
+        {
+          "question": "What should input validation do?",
+          "options": [
+            "Check that input meets rules",
+            "Accept any value",
+            "Remove all prompts",
+            "Skip error messages"
+          ],
+          "answer": 0,
+          "explanation": "Validation checks the form and range of incoming data."
+        },
+        {
+          "question": "Why use semantic HTML?",
+          "options": [
+            "Only for color",
+            "To express content structure",
+            "To encrypt data",
+            "To avoid CSS"
+          ],
+          "answer": 1,
+          "explanation": "Semantic elements communicate meaning and structure."
+        },
+        {
+          "question": "What is responsive design?",
+          "options": [
+            "Fixed desktop sizing",
+            "Always hiding content",
+            "Adapting to different screens",
+            "Only using images"
+          ],
+          "answer": 2,
+          "explanation": "Responsive layouts adapt across screen sizes."
+        },
+        {
+          "question": "What does a test help verify?",
+          "options": [
+            "A code theme",
+            "Internet speed",
+            "A screen size",
+            "Expected behavior"
+          ],
+          "answer": 3,
+          "explanation": "Tests check behavior against expectations."
+        },
+        {
+          "question": "What is state in an interface?",
+          "options": [
+            "Data that affects the current UI",
+            "Only page colors",
+            "A filename",
+            "A browser brand"
+          ],
+          "answer": 0,
+          "explanation": "State tracks data that changes the interface."
+        },
+        {
+          "question": "What makes a useful error message?",
+          "options": [
+            "It hides the problem",
+            "It explains a recovery step",
+            "It blames the user",
+            "It has no context"
+          ],
+          "answer": 1,
+          "explanation": "Clear error messages help people recover."
+        }
+      ],
+      "assignment": {
+        "id": "assignment-4",
+        "courseId": "4",
+        "title": "Python Advanced: Practical Project",
+        "due": "2026-10-21",
+        "instructions": "Create a practical project applying the concepts from Python Advanced. Describe the problem, explain your approach, and include evidence of your result. Submit a 200–500 word reflection and optionally attach your project. Assessment: understanding (40%), practical application (40%), and clarity (20%)."
+      }
+    },
+    {
+      "id": "5",
+      "title": "UI/UX Design Masterclass",
+      "category": "Design",
+      "level": "Advanced",
+      "rating": 4.7,
+      "students": 0,
+      "duration": "8 weeks",
+      "price": 45,
+      "description": "Develop professional design systems and accessible product experiences.",
+      "image": "/images/ux-design.jpg",
+      "instructor": "Sarah Williams",
+      "instructorId": "instructor-2",
+      "outcomes": [
+        "Understand the core concepts of ui/ux design masterclass",
+        "Apply your skills through practical exercises",
+        "Evaluate your work and improve with feedback",
+        "Complete a project you can share in your portfolio"
+      ],
+      "lessons": [
+        {
+          "id": "1",
+          "title": "Product Discovery",
+          "duration": "20 min",
+          "content": "Product Discovery is part of building a solid foundation in UI/UX Design Masterclass. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates product discovery. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "2",
+          "title": "Research Synthesis",
+          "duration": "25 min",
+          "content": "Research Synthesis is part of building a solid foundation in UI/UX Design Masterclass. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates research synthesis. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "3",
+          "title": "Design Systems",
+          "duration": "30 min",
+          "content": "Design Systems is part of building a solid foundation in UI/UX Design Masterclass. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates design systems. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "4",
+          "title": "Accessibility",
+          "duration": "35 min",
+          "content": "Accessibility is part of building a solid foundation in UI/UX Design Masterclass. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates accessibility. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "5",
+          "title": "Usability Testing",
+          "duration": "40 min",
+          "content": "Usability Testing is part of building a solid foundation in UI/UX Design Masterclass. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates usability testing. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "6",
+          "title": "Portfolio Project",
+          "duration": "45 min",
+          "content": "Portfolio Project is part of building a solid foundation in UI/UX Design Masterclass. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates portfolio project. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the purpose of user research?",
+          "options": [
+            "Understand user needs",
+            "Choose random colors",
+            "Skip testing",
+            "Add more screens"
+          ],
+          "answer": 0,
+          "explanation": "Research grounds design decisions in user needs."
+        },
+        {
+          "question": "What does a wireframe describe?",
+          "options": [
+            "Final code",
+            "Layout and structure",
+            "Server settings",
+            "Payment details"
+          ],
+          "answer": 1,
+          "explanation": "Wireframes explore the structure before visual polish."
+        },
+        {
+          "question": "What does visual hierarchy guide?",
+          "options": [
+            "File size",
+            "Server speed",
+            "Attention",
+            "Passwords"
+          ],
+          "answer": 2,
+          "explanation": "Hierarchy helps people notice and understand information."
+        },
+        {
+          "question": "Which is an accessibility practice?",
+          "options": [
+            "Tiny text",
+            "Color-only labels",
+            "Hidden controls",
+            "Clear labels and contrast"
+          ],
+          "answer": 3,
+          "explanation": "Labels and readable contrast support more users."
+        },
+        {
+          "question": "What is a prototype?",
+          "options": [
+            "A testable representation of a design",
+            "A finished database",
+            "A font license",
+            "A user password"
+          ],
+          "answer": 0,
+          "explanation": "Prototypes let you test interactions before implementation."
+        },
+        {
+          "question": "Why use a design system?",
+          "options": [
+            "To avoid consistency",
+            "To reuse coherent patterns",
+            "To eliminate research",
+            "To hide navigation"
+          ],
+          "answer": 1,
+          "explanation": "Shared components and rules improve consistency."
+        },
+        {
+          "question": "What does usability testing observe?",
+          "options": [
+            "Only colors",
+            "Only file names",
+            "People completing tasks",
+            "Only page count"
+          ],
+          "answer": 2,
+          "explanation": "Testing reveals how people use a design."
+        },
+        {
+          "question": "What makes typography readable?",
+          "options": [
+            "Very small text",
+            "Crowded lines",
+            "Many fonts",
+            "Clear size and spacing"
+          ],
+          "answer": 3,
+          "explanation": "Readable type supports comprehension."
+        },
+        {
+          "question": "What should feedback after an action do?",
+          "options": [
+            "Explain its result",
+            "Disappear instantly",
+            "Hide errors",
+            "Change every layout"
+          ],
+          "answer": 0,
+          "explanation": "Feedback confirms what happened and what comes next."
+        },
+        {
+          "question": "What should a portfolio case study explain?",
+          "options": [
+            "Only screenshots",
+            "Problem, decisions, and outcomes",
+            "Only a logo",
+            "Only tools used"
+          ],
+          "answer": 1,
+          "explanation": "Case studies show the reasoning behind a design."
+        }
+      ],
+      "assignment": {
+        "id": "assignment-5",
+        "courseId": "5",
+        "title": "UI/UX Design Masterclass: Practical Project",
+        "due": "2026-10-21",
+        "instructions": "Create a practical project applying the concepts from UI/UX Design Masterclass. Describe the problem, explain your approach, and include evidence of your result. Submit a 200–500 word reflection and optionally attach your project. Assessment: understanding (40%), practical application (40%), and clarity (20%)."
+      }
+    },
+    {
+      "id": "6",
+      "title": "Social Media Marketing",
+      "category": "Marketing",
+      "level": "Intermediate",
+      "rating": 4.9,
+      "students": 0,
+      "duration": "5 weeks",
+      "price": 50,
+      "description": "Create social campaigns that connect with audiences and grow online brands.",
+      "image": "/images/digital-marketing.jpg",
+      "instructor": "Michael Brown",
+      "instructorId": "instructor-3",
+      "outcomes": [
+        "Understand the core concepts of social media marketing",
+        "Apply your skills through practical exercises",
+        "Evaluate your work and improve with feedback",
+        "Complete a project you can share in your portfolio"
+      ],
+      "lessons": [
+        {
+          "id": "1",
+          "title": "Brand Voice",
+          "duration": "20 min",
+          "content": "Brand Voice is part of building a solid foundation in Social Media Marketing. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates brand voice. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "2",
+          "title": "Content Planning",
+          "duration": "25 min",
+          "content": "Content Planning is part of building a solid foundation in Social Media Marketing. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates content planning. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "3",
+          "title": "Community Management",
+          "duration": "30 min",
+          "content": "Community Management is part of building a solid foundation in Social Media Marketing. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates community management. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "4",
+          "title": "Paid Campaigns",
+          "duration": "35 min",
+          "content": "Paid Campaigns is part of building a solid foundation in Social Media Marketing. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates paid campaigns. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "5",
+          "title": "Analytics",
+          "duration": "40 min",
+          "content": "Analytics is part of building a solid foundation in Social Media Marketing. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates analytics. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "6",
+          "title": "Campaign Project",
+          "duration": "45 min",
+          "content": "Campaign Project is part of building a solid foundation in Social Media Marketing. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates campaign project. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What comes before a marketing campaign?",
+          "options": [
+            "Audience and goal definition",
+            "Random posting",
+            "Deleting metrics",
+            "Ignoring the product"
+          ],
+          "answer": 0,
+          "explanation": "Audience and goals guide a campaign."
+        },
+        {
+          "question": "What is a target audience?",
+          "options": [
+            "Every website",
+            "The people a campaign aims to reach",
+            "A font",
+            "A schedule only"
+          ],
+          "answer": 1,
+          "explanation": "A target audience is a defined group of people."
+        },
+        {
+          "question": "What does SEO help improve?",
+          "options": [
+            "Office layout",
+            "Password strength",
+            "Search visibility",
+            "File storage"
+          ],
+          "answer": 2,
+          "explanation": "SEO helps relevant content be discovered in search."
+        },
+        {
+          "question": "Which metric measures engagement?",
+          "options": [
+            "File size",
+            "Screen width",
+            "A username",
+            "Comments and shares"
+          ],
+          "answer": 3,
+          "explanation": "Interactions are signals of audience engagement."
+        },
+        {
+          "question": "What is a call to action?",
+          "options": [
+            "A prompt to take a next step",
+            "A hidden link",
+            "A logo only",
+            "A file format"
+          ],
+          "answer": 0,
+          "explanation": "A call to action helps people know what to do next."
+        },
+        {
+          "question": "Why maintain a content calendar?",
+          "options": [
+            "To avoid planning",
+            "To organize publishing",
+            "To hide campaigns",
+            "To skip review"
+          ],
+          "answer": 1,
+          "explanation": "Calendars align content with timing and goals."
+        },
+        {
+          "question": "What is brand voice?",
+          "options": [
+            "Audio volume",
+            "A browser setting",
+            "A consistent communication style",
+            "A file name"
+          ],
+          "answer": 2,
+          "explanation": "Brand voice describes how a brand communicates."
+        },
+        {
+          "question": "What should campaign evaluation compare?",
+          "options": [
+            "Only colors",
+            "Only length",
+            "Only images",
+            "Results against goals"
+          ],
+          "answer": 3,
+          "explanation": "Evaluation compares outcomes with intended goals."
+        },
+        {
+          "question": "What is A/B testing?",
+          "options": [
+            "Comparing two variations",
+            "Posting twice randomly",
+            "Removing analytics",
+            "Copying a competitor"
+          ],
+          "answer": 0,
+          "explanation": "A/B tests compare variations using a defined outcome."
+        },
+        {
+          "question": "What supports trust in marketing?",
+          "options": [
+            "Unsupported promises",
+            "Clear and accurate claims",
+            "Hidden terms",
+            "Misleading prices"
+          ],
+          "answer": 1,
+          "explanation": "Honest, understandable communication builds trust."
+        }
+      ],
+      "assignment": {
+        "id": "assignment-6",
+        "courseId": "6",
+        "title": "Social Media Marketing: Practical Project",
+        "due": "2026-10-21",
+        "instructions": "Create a practical project applying the concepts from Social Media Marketing. Describe the problem, explain your approach, and include evidence of your result. Submit a 200–500 word reflection and optionally attach your project. Assessment: understanding (40%), practical application (40%), and clarity (20%)."
+      }
+    },
+    {
+      "id": "7",
+      "title": "Web Development",
+      "category": "Programming",
+      "level": "Beginner",
+      "rating": 4.8,
+      "students": 0,
+      "duration": "10 weeks",
+      "price": 39,
+      "description": "Build responsive websites using HTML, CSS, and JavaScript.",
+      "image": "/images/python.jpg",
+      "instructor": "Dr. Alex Johnson",
+      "instructorId": "instructor-1",
+      "outcomes": [
+        "Understand the core concepts of web development",
+        "Apply your skills through practical exercises",
+        "Evaluate your work and improve with feedback",
+        "Complete a project you can share in your portfolio"
+      ],
+      "lessons": [
+        {
+          "id": "1",
+          "title": "How the Web Works",
+          "duration": "20 min",
+          "content": "How the Web Works is part of building a solid foundation in Web Development. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates how the web works. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "2",
+          "title": "Semantic HTML",
+          "duration": "25 min",
+          "content": "Semantic HTML is part of building a solid foundation in Web Development. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates semantic html. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "3",
+          "title": "CSS Layouts",
+          "duration": "30 min",
+          "content": "CSS Layouts is part of building a solid foundation in Web Development. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates css layouts. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "4",
+          "title": "Responsive Design",
+          "duration": "35 min",
+          "content": "Responsive Design is part of building a solid foundation in Web Development. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates responsive design. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "5",
+          "title": "JavaScript Fundamentals",
+          "duration": "40 min",
+          "content": "JavaScript Fundamentals is part of building a solid foundation in Web Development. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates javascript fundamentals. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "6",
+          "title": "Website Project",
+          "duration": "45 min",
+          "content": "Website Project is part of building a solid foundation in Web Development. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates website project. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is a variable used for?",
+          "options": [
+            "Naming a value",
+            "Styling a screen",
+            "Deleting a file",
+            "Measuring a monitor"
+          ],
+          "answer": 0,
+          "explanation": "Variables give names to values used by a program."
+        },
+        {
+          "question": "Why use a function?",
+          "options": [
+            "To duplicate code",
+            "To group reusable behavior",
+            "To remove input",
+            "To hide every error"
+          ],
+          "answer": 1,
+          "explanation": "Functions make a focused behavior reusable."
+        },
+        {
+          "question": "Which structure repeats a task?",
+          "options": [
+            "Comment",
+            "Constant",
+            "Loop",
+            "Import"
+          ],
+          "answer": 2,
+          "explanation": "Loops repeat statements over items or conditions."
+        },
+        {
+          "question": "What is a boolean value?",
+          "options": [
+            "An image",
+            "A list",
+            "A font",
+            "True or false"
+          ],
+          "answer": 3,
+          "explanation": "Booleans represent truth values."
+        },
+        {
+          "question": "What should input validation do?",
+          "options": [
+            "Check that input meets rules",
+            "Accept any value",
+            "Remove all prompts",
+            "Skip error messages"
+          ],
+          "answer": 0,
+          "explanation": "Validation checks the form and range of incoming data."
+        },
+        {
+          "question": "Why use semantic HTML?",
+          "options": [
+            "Only for color",
+            "To express content structure",
+            "To encrypt data",
+            "To avoid CSS"
+          ],
+          "answer": 1,
+          "explanation": "Semantic elements communicate meaning and structure."
+        },
+        {
+          "question": "What is responsive design?",
+          "options": [
+            "Fixed desktop sizing",
+            "Always hiding content",
+            "Adapting to different screens",
+            "Only using images"
+          ],
+          "answer": 2,
+          "explanation": "Responsive layouts adapt across screen sizes."
+        },
+        {
+          "question": "What does a test help verify?",
+          "options": [
+            "A code theme",
+            "Internet speed",
+            "A screen size",
+            "Expected behavior"
+          ],
+          "answer": 3,
+          "explanation": "Tests check behavior against expectations."
+        },
+        {
+          "question": "What is state in an interface?",
+          "options": [
+            "Data that affects the current UI",
+            "Only page colors",
+            "A filename",
+            "A browser brand"
+          ],
+          "answer": 0,
+          "explanation": "State tracks data that changes the interface."
+        },
+        {
+          "question": "What makes a useful error message?",
+          "options": [
+            "It hides the problem",
+            "It explains a recovery step",
+            "It blames the user",
+            "It has no context"
+          ],
+          "answer": 1,
+          "explanation": "Clear error messages help people recover."
+        }
+      ],
+      "assignment": {
+        "id": "assignment-7",
+        "courseId": "7",
+        "title": "Web Development: Practical Project",
+        "due": "2026-10-21",
+        "instructions": "Create a practical project applying the concepts from Web Development. Describe the problem, explain your approach, and include evidence of your result. Submit a 200–500 word reflection and optionally attach your project. Assessment: understanding (40%), practical application (40%), and clarity (20%)."
+      }
+    },
+    {
+      "id": "8",
+      "title": "Data Science Fundamentals",
+      "category": "Data Science",
+      "level": "Beginner",
+      "rating": 4.7,
+      "students": 0,
+      "duration": "8 weeks",
+      "price": 49,
+      "description": "Turn raw data into clear insights with analysis and visualization.",
+      "image": "/images/python.jpg",
+      "instructor": "Dr. Alex Johnson",
+      "instructorId": "instructor-1",
+      "outcomes": [
+        "Understand the core concepts of data science fundamentals",
+        "Apply your skills through practical exercises",
+        "Evaluate your work and improve with feedback",
+        "Complete a project you can share in your portfolio"
+      ],
+      "lessons": [
+        {
+          "id": "1",
+          "title": "Asking Data Questions",
+          "duration": "20 min",
+          "content": "Asking Data Questions is part of building a solid foundation in Data Science Fundamentals. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates asking data questions. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "2",
+          "title": "Data Collection",
+          "duration": "25 min",
+          "content": "Data Collection is part of building a solid foundation in Data Science Fundamentals. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates data collection. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "3",
+          "title": "Cleaning Data",
+          "duration": "30 min",
+          "content": "Cleaning Data is part of building a solid foundation in Data Science Fundamentals. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates cleaning data. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "4",
+          "title": "Exploratory Analysis",
+          "duration": "35 min",
+          "content": "Exploratory Analysis is part of building a solid foundation in Data Science Fundamentals. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates exploratory analysis. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "5",
+          "title": "Visualization",
+          "duration": "40 min",
+          "content": "Visualization is part of building a solid foundation in Data Science Fundamentals. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates visualization. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "6",
+          "title": "Communicating Insights",
+          "duration": "45 min",
+          "content": "Communicating Insights is part of building a solid foundation in Data Science Fundamentals. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates communicating insights. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What should precede data collection?",
+          "options": [
+            "A clear question",
+            "A random model",
+            "A logo",
+            "A password"
+          ],
+          "answer": 0,
+          "explanation": "A question defines which data is useful."
+        },
+        {
+          "question": "What is data cleaning?",
+          "options": [
+            "Deleting all rows",
+            "Addressing missing or inconsistent values",
+            "Changing fonts",
+            "Hiding the source"
+          ],
+          "answer": 1,
+          "explanation": "Cleaning improves data quality."
+        },
+        {
+          "question": "What helps explore a distribution?",
+          "options": [
+            "A password",
+            "A logo",
+            "A histogram",
+            "A file name"
+          ],
+          "answer": 2,
+          "explanation": "Histograms show the distribution of values."
+        },
+        {
+          "question": "Which is a classification task?",
+          "options": [
+            "Estimating temperature",
+            "Predicting a price",
+            "Adding two values",
+            "Labeling an email as spam"
+          ],
+          "answer": 3,
+          "explanation": "Classification predicts a category."
+        },
+        {
+          "question": "What is regression used for?",
+          "options": [
+            "Predicting a numeric value",
+            "Only grouping fonts",
+            "Storing passwords",
+            "Naming files"
+          ],
+          "answer": 0,
+          "explanation": "Regression estimates continuous values."
+        },
+        {
+          "question": "Why separate training and test data?",
+          "options": [
+            "To waste data",
+            "To evaluate on unseen examples",
+            "To avoid validation",
+            "To guarantee perfection"
+          ],
+          "answer": 1,
+          "explanation": "Unseen data helps assess generalization."
+        },
+        {
+          "question": "What is overfitting?",
+          "options": [
+            "A perfect model",
+            "Missing all data",
+            "Learning training details that do not generalize",
+            "A data format"
+          ],
+          "answer": 2,
+          "explanation": "Overfit models perform poorly on new examples."
+        },
+        {
+          "question": "What should a chart include?",
+          "options": [
+            "Only colors",
+            "No scale",
+            "Hidden units",
+            "Labels and meaningful scales"
+          ],
+          "answer": 3,
+          "explanation": "Labels make charts interpretable."
+        },
+        {
+          "question": "Does correlation prove causation?",
+          "options": [
+            "No",
+            "Always",
+            "Only with a chart",
+            "Only with many rows"
+          ],
+          "answer": 0,
+          "explanation": "Correlation alone does not establish a causal relationship."
+        },
+        {
+          "question": "What is responsible reporting?",
+          "options": [
+            "Hiding uncertainty",
+            "Explaining methods and limitations",
+            "Removing sources",
+            "Promising certainty"
+          ],
+          "answer": 1,
+          "explanation": "Transparent reporting supports informed interpretation."
+        }
+      ],
+      "assignment": {
+        "id": "assignment-8",
+        "courseId": "8",
+        "title": "Data Science Fundamentals: Practical Project",
+        "due": "2026-10-21",
+        "instructions": "Create a practical project applying the concepts from Data Science Fundamentals. Describe the problem, explain your approach, and include evidence of your result. Submit a 200–500 word reflection and optionally attach your project. Assessment: understanding (40%), practical application (40%), and clarity (20%)."
+      }
+    },
+    {
+      "id": "9",
+      "title": "React Development",
+      "category": "Programming",
+      "level": "Intermediate",
+      "rating": 4.9,
+      "students": 0,
+      "duration": "8 weeks",
+      "price": 55,
+      "description": "Create interactive applications with components, state, and reusable patterns.",
+      "image": "/images/python.jpg",
+      "instructor": "Dr. Alex Johnson",
+      "instructorId": "instructor-1",
+      "outcomes": [
+        "Understand the core concepts of react development",
+        "Apply your skills through practical exercises",
+        "Evaluate your work and improve with feedback",
+        "Complete a project you can share in your portfolio"
+      ],
+      "lessons": [
+        {
+          "id": "1",
+          "title": "Components and JSX",
+          "duration": "20 min",
+          "content": "Components and JSX is part of building a solid foundation in React Development. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates components and jsx. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "2",
+          "title": "Props",
+          "duration": "25 min",
+          "content": "Props is part of building a solid foundation in React Development. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates props. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "3",
+          "title": "State and Events",
+          "duration": "30 min",
+          "content": "State and Events is part of building a solid foundation in React Development. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates state and events. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "4",
+          "title": "Forms",
+          "duration": "35 min",
+          "content": "Forms is part of building a solid foundation in React Development. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates forms. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "5",
+          "title": "Data and Effects",
+          "duration": "40 min",
+          "content": "Data and Effects is part of building a solid foundation in React Development. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates data and effects. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "6",
+          "title": "Application Project",
+          "duration": "45 min",
+          "content": "Application Project is part of building a solid foundation in React Development. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates application project. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is a variable used for?",
+          "options": [
+            "Naming a value",
+            "Styling a screen",
+            "Deleting a file",
+            "Measuring a monitor"
+          ],
+          "answer": 0,
+          "explanation": "Variables give names to values used by a program."
+        },
+        {
+          "question": "Why use a function?",
+          "options": [
+            "To duplicate code",
+            "To group reusable behavior",
+            "To remove input",
+            "To hide every error"
+          ],
+          "answer": 1,
+          "explanation": "Functions make a focused behavior reusable."
+        },
+        {
+          "question": "Which structure repeats a task?",
+          "options": [
+            "Comment",
+            "Constant",
+            "Loop",
+            "Import"
+          ],
+          "answer": 2,
+          "explanation": "Loops repeat statements over items or conditions."
+        },
+        {
+          "question": "What is a boolean value?",
+          "options": [
+            "An image",
+            "A list",
+            "A font",
+            "True or false"
+          ],
+          "answer": 3,
+          "explanation": "Booleans represent truth values."
+        },
+        {
+          "question": "What should input validation do?",
+          "options": [
+            "Check that input meets rules",
+            "Accept any value",
+            "Remove all prompts",
+            "Skip error messages"
+          ],
+          "answer": 0,
+          "explanation": "Validation checks the form and range of incoming data."
+        },
+        {
+          "question": "Why use semantic HTML?",
+          "options": [
+            "Only for color",
+            "To express content structure",
+            "To encrypt data",
+            "To avoid CSS"
+          ],
+          "answer": 1,
+          "explanation": "Semantic elements communicate meaning and structure."
+        },
+        {
+          "question": "What is responsive design?",
+          "options": [
+            "Fixed desktop sizing",
+            "Always hiding content",
+            "Adapting to different screens",
+            "Only using images"
+          ],
+          "answer": 2,
+          "explanation": "Responsive layouts adapt across screen sizes."
+        },
+        {
+          "question": "What does a test help verify?",
+          "options": [
+            "A code theme",
+            "Internet speed",
+            "A screen size",
+            "Expected behavior"
+          ],
+          "answer": 3,
+          "explanation": "Tests check behavior against expectations."
+        },
+        {
+          "question": "What is state in an interface?",
+          "options": [
+            "Data that affects the current UI",
+            "Only page colors",
+            "A filename",
+            "A browser brand"
+          ],
+          "answer": 0,
+          "explanation": "State tracks data that changes the interface."
+        },
+        {
+          "question": "What makes a useful error message?",
+          "options": [
+            "It hides the problem",
+            "It explains a recovery step",
+            "It blames the user",
+            "It has no context"
+          ],
+          "answer": 1,
+          "explanation": "Clear error messages help people recover."
+        }
+      ],
+      "assignment": {
+        "id": "assignment-9",
+        "courseId": "9",
+        "title": "React Development: Practical Project",
+        "due": "2026-10-21",
+        "instructions": "Create a practical project applying the concepts from React Development. Describe the problem, explain your approach, and include evidence of your result. Submit a 200–500 word reflection and optionally attach your project. Assessment: understanding (40%), practical application (40%), and clarity (20%)."
+      }
+    },
+    {
+      "id": "10",
+      "title": "Graphic Design",
+      "category": "Design",
+      "level": "Beginner",
+      "rating": 4.7,
+      "students": 0,
+      "duration": "6 weeks",
+      "price": 29,
+      "description": "Develop visual communication skills through composition, color, and typography.",
+      "image": "/images/ux-design.jpg",
+      "instructor": "Sarah Williams",
+      "instructorId": "instructor-2",
+      "outcomes": [
+        "Understand the core concepts of graphic design",
+        "Apply your skills through practical exercises",
+        "Evaluate your work and improve with feedback",
+        "Complete a project you can share in your portfolio"
+      ],
+      "lessons": [
+        {
+          "id": "1",
+          "title": "Visual Hierarchy",
+          "duration": "20 min",
+          "content": "Visual Hierarchy is part of building a solid foundation in Graphic Design. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates visual hierarchy. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "2",
+          "title": "Composition",
+          "duration": "25 min",
+          "content": "Composition is part of building a solid foundation in Graphic Design. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates composition. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "3",
+          "title": "Color Theory",
+          "duration": "30 min",
+          "content": "Color Theory is part of building a solid foundation in Graphic Design. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates color theory. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "4",
+          "title": "Typography",
+          "duration": "35 min",
+          "content": "Typography is part of building a solid foundation in Graphic Design. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates typography. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "5",
+          "title": "Brand Identity",
+          "duration": "40 min",
+          "content": "Brand Identity is part of building a solid foundation in Graphic Design. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates brand identity. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "6",
+          "title": "Design Portfolio",
+          "duration": "45 min",
+          "content": "Design Portfolio is part of building a solid foundation in Graphic Design. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates design portfolio. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is the purpose of user research?",
+          "options": [
+            "Understand user needs",
+            "Choose random colors",
+            "Skip testing",
+            "Add more screens"
+          ],
+          "answer": 0,
+          "explanation": "Research grounds design decisions in user needs."
+        },
+        {
+          "question": "What does a wireframe describe?",
+          "options": [
+            "Final code",
+            "Layout and structure",
+            "Server settings",
+            "Payment details"
+          ],
+          "answer": 1,
+          "explanation": "Wireframes explore the structure before visual polish."
+        },
+        {
+          "question": "What does visual hierarchy guide?",
+          "options": [
+            "File size",
+            "Server speed",
+            "Attention",
+            "Passwords"
+          ],
+          "answer": 2,
+          "explanation": "Hierarchy helps people notice and understand information."
+        },
+        {
+          "question": "Which is an accessibility practice?",
+          "options": [
+            "Tiny text",
+            "Color-only labels",
+            "Hidden controls",
+            "Clear labels and contrast"
+          ],
+          "answer": 3,
+          "explanation": "Labels and readable contrast support more users."
+        },
+        {
+          "question": "What is a prototype?",
+          "options": [
+            "A testable representation of a design",
+            "A finished database",
+            "A font license",
+            "A user password"
+          ],
+          "answer": 0,
+          "explanation": "Prototypes let you test interactions before implementation."
+        },
+        {
+          "question": "Why use a design system?",
+          "options": [
+            "To avoid consistency",
+            "To reuse coherent patterns",
+            "To eliminate research",
+            "To hide navigation"
+          ],
+          "answer": 1,
+          "explanation": "Shared components and rules improve consistency."
+        },
+        {
+          "question": "What does usability testing observe?",
+          "options": [
+            "Only colors",
+            "Only file names",
+            "People completing tasks",
+            "Only page count"
+          ],
+          "answer": 2,
+          "explanation": "Testing reveals how people use a design."
+        },
+        {
+          "question": "What makes typography readable?",
+          "options": [
+            "Very small text",
+            "Crowded lines",
+            "Many fonts",
+            "Clear size and spacing"
+          ],
+          "answer": 3,
+          "explanation": "Readable type supports comprehension."
+        },
+        {
+          "question": "What should feedback after an action do?",
+          "options": [
+            "Explain its result",
+            "Disappear instantly",
+            "Hide errors",
+            "Change every layout"
+          ],
+          "answer": 0,
+          "explanation": "Feedback confirms what happened and what comes next."
+        },
+        {
+          "question": "What should a portfolio case study explain?",
+          "options": [
+            "Only screenshots",
+            "Problem, decisions, and outcomes",
+            "Only a logo",
+            "Only tools used"
+          ],
+          "answer": 1,
+          "explanation": "Case studies show the reasoning behind a design."
+        }
+      ],
+      "assignment": {
+        "id": "assignment-10",
+        "courseId": "10",
+        "title": "Graphic Design: Practical Project",
+        "due": "2026-10-21",
+        "instructions": "Create a practical project applying the concepts from Graphic Design. Describe the problem, explain your approach, and include evidence of your result. Submit a 200–500 word reflection and optionally attach your project. Assessment: understanding (40%), practical application (40%), and clarity (20%)."
+      }
+    },
+    {
+      "id": "11",
+      "title": "Business Analytics",
+      "category": "Business",
+      "level": "Intermediate",
+      "rating": 4.8,
+      "students": 0,
+      "duration": "7 weeks",
+      "price": 45,
+      "description": "Use evidence and practical analysis to make better business decisions.",
+      "image": "/images/digital-marketing.jpg",
+      "instructor": "Michael Brown",
+      "instructorId": "instructor-3",
+      "outcomes": [
+        "Understand the core concepts of business analytics",
+        "Apply your skills through practical exercises",
+        "Evaluate your work and improve with feedback",
+        "Complete a project you can share in your portfolio"
+      ],
+      "lessons": [
+        {
+          "id": "1",
+          "title": "Business Questions",
+          "duration": "20 min",
+          "content": "Business Questions is part of building a solid foundation in Business Analytics. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates business questions. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "2",
+          "title": "Performance Metrics",
+          "duration": "25 min",
+          "content": "Performance Metrics is part of building a solid foundation in Business Analytics. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates performance metrics. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "3",
+          "title": "Spreadsheet Analysis",
+          "duration": "30 min",
+          "content": "Spreadsheet Analysis is part of building a solid foundation in Business Analytics. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates spreadsheet analysis. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "4",
+          "title": "Forecasting",
+          "duration": "35 min",
+          "content": "Forecasting is part of building a solid foundation in Business Analytics. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates forecasting. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "5",
+          "title": "Decision Making",
+          "duration": "40 min",
+          "content": "Decision Making is part of building a solid foundation in Business Analytics. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates decision making. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "6",
+          "title": "Business Case",
+          "duration": "45 min",
+          "content": "Business Case is part of building a solid foundation in Business Analytics. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates business case. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What is a KPI?",
+          "options": [
+            "A key performance indicator",
+            "A password",
+            "A file type",
+            "A logo"
+          ],
+          "answer": 0,
+          "explanation": "KPIs measure progress toward business goals."
+        },
+        {
+          "question": "What should an analysis start with?",
+          "options": [
+            "Random charts",
+            "A clear business question",
+            "A font",
+            "A prediction without data"
+          ],
+          "answer": 1,
+          "explanation": "A question gives the analysis a purpose."
+        },
+        {
+          "question": "Which makes evidence more useful?",
+          "options": [
+            "Ignoring sources",
+            "Hiding uncertainty",
+            "Checking data quality",
+            "Removing context"
+          ],
+          "answer": 2,
+          "explanation": "Data quality affects the reliability of conclusions."
+        },
+        {
+          "question": "What is a forecast?",
+          "options": [
+            "A guaranteed result",
+            "A past receipt",
+            "An expense only",
+            "An estimate of future outcomes"
+          ],
+          "answer": 3,
+          "explanation": "Forecasts estimate outcomes using assumptions and evidence."
+        },
+        {
+          "question": "What is a budget?",
+          "options": [
+            "A plan for income and spending",
+            "Only a logo",
+            "A file format",
+            "A login"
+          ],
+          "answer": 0,
+          "explanation": "Budgets help plan and control resources."
+        },
+        {
+          "question": "Why compare alternatives?",
+          "options": [
+            "To delay every decision",
+            "To assess tradeoffs",
+            "To avoid evidence",
+            "To hide costs"
+          ],
+          "answer": 1,
+          "explanation": "Comparison makes the benefits and costs clearer."
+        },
+        {
+          "question": "What does revenue measure?",
+          "options": [
+            "Only expenses",
+            "Only headcount",
+            "Income from sales",
+            "Only profit"
+          ],
+          "answer": 2,
+          "explanation": "Revenue is income before subtracting expenses."
+        },
+        {
+          "question": "What should a dashboard emphasize?",
+          "options": [
+            "Every possible number",
+            "Only decorations",
+            "Hidden labels",
+            "Relevant metrics"
+          ],
+          "answer": 3,
+          "explanation": "Relevant metrics support decisions."
+        },
+        {
+          "question": "Why document assumptions?",
+          "options": [
+            "To make conclusions reviewable",
+            "To hide uncertainty",
+            "To remove context",
+            "To skip analysis"
+          ],
+          "answer": 0,
+          "explanation": "Assumptions explain the limits of an analysis."
+        },
+        {
+          "question": "What is a useful recommendation?",
+          "options": [
+            "An unsupported guess",
+            "A clear action supported by evidence",
+            "A chart without labels",
+            "A promise without risks"
+          ],
+          "answer": 1,
+          "explanation": "Recommendations connect evidence to an action."
+        }
+      ],
+      "assignment": {
+        "id": "assignment-11",
+        "courseId": "11",
+        "title": "Business Analytics: Practical Project",
+        "due": "2026-10-21",
+        "instructions": "Create a practical project applying the concepts from Business Analytics. Describe the problem, explain your approach, and include evidence of your result. Submit a 200–500 word reflection and optionally attach your project. Assessment: understanding (40%), practical application (40%), and clarity (20%)."
+      }
+    },
+    {
+      "id": "12",
+      "title": "Machine Learning Basics",
+      "category": "Data Science",
+      "level": "Intermediate",
+      "rating": 4.8,
+      "students": 0,
+      "duration": "9 weeks",
+      "price": 59,
+      "description": "Understand models, training data, evaluation, and responsible experimentation.",
+      "image": "/images/python.jpg",
+      "instructor": "Dr. Alex Johnson",
+      "instructorId": "instructor-1",
+      "outcomes": [
+        "Understand the core concepts of machine learning basics",
+        "Apply your skills through practical exercises",
+        "Evaluate your work and improve with feedback",
+        "Complete a project you can share in your portfolio"
+      ],
+      "lessons": [
+        {
+          "id": "1",
+          "title": "Learning from Data",
+          "duration": "20 min",
+          "content": "Learning from Data is part of building a solid foundation in Machine Learning Basics. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates learning from data. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "2",
+          "title": "Preparing Datasets",
+          "duration": "25 min",
+          "content": "Preparing Datasets is part of building a solid foundation in Machine Learning Basics. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates preparing datasets. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "3",
+          "title": "Regression",
+          "duration": "30 min",
+          "content": "Regression is part of building a solid foundation in Machine Learning Basics. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates regression. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "4",
+          "title": "Classification",
+          "duration": "35 min",
+          "content": "Classification is part of building a solid foundation in Machine Learning Basics. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates classification. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "5",
+          "title": "Model Evaluation",
+          "duration": "40 min",
+          "content": "Model Evaluation is part of building a solid foundation in Machine Learning Basics. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates model evaluation. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "6",
+          "title": "Capstone Experiment",
+          "duration": "45 min",
+          "content": "Capstone Experiment is part of building a solid foundation in Machine Learning Basics. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates capstone experiment. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What should precede data collection?",
+          "options": [
+            "A clear question",
+            "A random model",
+            "A logo",
+            "A password"
+          ],
+          "answer": 0,
+          "explanation": "A question defines which data is useful."
+        },
+        {
+          "question": "What is data cleaning?",
+          "options": [
+            "Deleting all rows",
+            "Addressing missing or inconsistent values",
+            "Changing fonts",
+            "Hiding the source"
+          ],
+          "answer": 1,
+          "explanation": "Cleaning improves data quality."
+        },
+        {
+          "question": "What helps explore a distribution?",
+          "options": [
+            "A password",
+            "A logo",
+            "A histogram",
+            "A file name"
+          ],
+          "answer": 2,
+          "explanation": "Histograms show the distribution of values."
+        },
+        {
+          "question": "Which is a classification task?",
+          "options": [
+            "Estimating temperature",
+            "Predicting a price",
+            "Adding two values",
+            "Labeling an email as spam"
+          ],
+          "answer": 3,
+          "explanation": "Classification predicts a category."
+        },
+        {
+          "question": "What is regression used for?",
+          "options": [
+            "Predicting a numeric value",
+            "Only grouping fonts",
+            "Storing passwords",
+            "Naming files"
+          ],
+          "answer": 0,
+          "explanation": "Regression estimates continuous values."
+        },
+        {
+          "question": "Why separate training and test data?",
+          "options": [
+            "To waste data",
+            "To evaluate on unseen examples",
+            "To avoid validation",
+            "To guarantee perfection"
+          ],
+          "answer": 1,
+          "explanation": "Unseen data helps assess generalization."
+        },
+        {
+          "question": "What is overfitting?",
+          "options": [
+            "A perfect model",
+            "Missing all data",
+            "Learning training details that do not generalize",
+            "A data format"
+          ],
+          "answer": 2,
+          "explanation": "Overfit models perform poorly on new examples."
+        },
+        {
+          "question": "What should a chart include?",
+          "options": [
+            "Only colors",
+            "No scale",
+            "Hidden units",
+            "Labels and meaningful scales"
+          ],
+          "answer": 3,
+          "explanation": "Labels make charts interpretable."
+        },
+        {
+          "question": "Does correlation prove causation?",
+          "options": [
+            "No",
+            "Always",
+            "Only with a chart",
+            "Only with many rows"
+          ],
+          "answer": 0,
+          "explanation": "Correlation alone does not establish a causal relationship."
+        },
+        {
+          "question": "What is responsible reporting?",
+          "options": [
+            "Hiding uncertainty",
+            "Explaining methods and limitations",
+            "Removing sources",
+            "Promising certainty"
+          ],
+          "answer": 1,
+          "explanation": "Transparent reporting supports informed interpretation."
+        }
+      ],
+      "assignment": {
+        "id": "assignment-12",
+        "courseId": "12",
+        "title": "Machine Learning Basics: Practical Project",
+        "due": "2026-10-21",
+        "instructions": "Create a practical project applying the concepts from Machine Learning Basics. Describe the problem, explain your approach, and include evidence of your result. Submit a 200–500 word reflection and optionally attach your project. Assessment: understanding (40%), practical application (40%), and clarity (20%)."
+      }
+    },
+    {
+      "id": "13",
+      "title": "Learning and Time Management",
+      "category": "Personal Development",
+      "level": "Beginner",
+      "rating": 4.9,
+      "students": 0,
+      "duration": "4 weeks",
+      "price": 19,
+      "description": "Build sustainable study habits and plan your learning with confidence.",
+      "image": "/images/ux-design.jpg",
+      "instructor": "Dr. Alex Johnson",
+      "instructorId": "instructor-1",
+      "outcomes": [
+        "Understand the core concepts of learning and time management",
+        "Apply your skills through practical exercises",
+        "Evaluate your work and improve with feedback",
+        "Complete a project you can share in your portfolio"
+      ],
+      "lessons": [
+        {
+          "id": "1",
+          "title": "Setting Goals",
+          "duration": "20 min",
+          "content": "Setting Goals is part of building a solid foundation in Learning and Time Management. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates setting goals. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "2",
+          "title": "Planning Your Week",
+          "duration": "25 min",
+          "content": "Planning Your Week is part of building a solid foundation in Learning and Time Management. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates planning your week. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "3",
+          "title": "Active Recall",
+          "duration": "30 min",
+          "content": "Active Recall is part of building a solid foundation in Learning and Time Management. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates active recall. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "4",
+          "title": "Focus and Breaks",
+          "duration": "35 min",
+          "content": "Focus and Breaks is part of building a solid foundation in Learning and Time Management. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates focus and breaks. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "5",
+          "title": "Reflective Practice",
+          "duration": "40 min",
+          "content": "Reflective Practice is part of building a solid foundation in Learning and Time Management. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates reflective practice. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        },
+        {
+          "id": "6",
+          "title": "Personal Learning Plan",
+          "duration": "45 min",
+          "content": "Personal Learning Plan is part of building a solid foundation in Learning and Time Management. Begin by identifying the problem, the audience, and the outcome you want to achieve. Break the work into small steps, compare possible approaches, and document why you chose one. Review your result against the original goal and improve it using feedback. Apply this process to a real example from your studies or work.",
+          "exercise": "Create a small example that demonstrates personal learning plan. Explain your approach in three to five sentences, test the result, and record one improvement you would make."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "What makes a study goal useful?",
+          "options": [
+            "A clear measurable outcome",
+            "A vague promise",
+            "No deadline",
+            "No next step"
+          ],
+          "answer": 0,
+          "explanation": "Concrete outcomes make progress visible."
+        },
+        {
+          "question": "What is active recall?",
+          "options": [
+            "Only rereading",
+            "Retrieving information from memory",
+            "Skipping practice",
+            "Copying notes"
+          ],
+          "answer": 1,
+          "explanation": "Recall practice helps strengthen learning."
+        },
+        {
+          "question": "What is spaced practice?",
+          "options": [
+            "All study in one night",
+            "No review",
+            "Review over multiple sessions",
+            "Only watching videos"
+          ],
+          "answer": 2,
+          "explanation": "Spacing gives repeated opportunities to retrieve knowledge."
+        },
+        {
+          "question": "What supports sustained focus?",
+          "options": [
+            "Constant notifications",
+            "No breaks",
+            "Many unrelated tasks",
+            "Planned work and breaks"
+          ],
+          "answer": 3,
+          "explanation": "Planned intervals help manage attention."
+        },
+        {
+          "question": "Why reflect after a study session?",
+          "options": [
+            "To identify what to improve",
+            "To avoid practice",
+            "To remove goals",
+            "To compare unrelated topics"
+          ],
+          "answer": 0,
+          "explanation": "Reflection helps adjust the next session."
+        },
+        {
+          "question": "How should a large task be planned?",
+          "options": [
+            "As one vague step",
+            "As smaller actionable steps",
+            "Without priorities",
+            "Without time estimates"
+          ],
+          "answer": 1,
+          "explanation": "Smaller steps make the work manageable."
+        },
+        {
+          "question": "What should a weekly plan include?",
+          "options": [
+            "Only work",
+            "Only breaks",
+            "Priorities and realistic time",
+            "No flexibility"
+          ],
+          "answer": 2,
+          "explanation": "Realistic planning supports consistency."
+        },
+        {
+          "question": "What is useful feedback?",
+          "options": [
+            "Only praise",
+            "Only criticism",
+            "No examples",
+            "Specific guidance for improvement"
+          ],
+          "answer": 3,
+          "explanation": "Specific guidance makes feedback actionable."
+        },
+        {
+          "question": "What helps track progress?",
+          "options": [
+            "Recording completed goals",
+            "Ignoring results",
+            "Changing every goal daily",
+            "Avoiding reflection"
+          ],
+          "answer": 0,
+          "explanation": "Recording outcomes makes growth visible."
+        },
+        {
+          "question": "What makes a learning habit sustainable?",
+          "options": [
+            "Unrealistic hours",
+            "Consistent, manageable practice",
+            "No recovery",
+            "No purpose"
+          ],
+          "answer": 1,
+          "explanation": "Manageable practice is easier to sustain."
+        }
+      ],
+      "assignment": {
+        "id": "assignment-13",
+        "courseId": "13",
+        "title": "Learning and Time Management: Practical Project",
+        "due": "2026-10-21",
+        "instructions": "Create a practical project applying the concepts from Learning and Time Management. Describe the problem, explain your approach, and include evidence of your result. Submit a 200–500 word reflection and optionally attach your project. Assessment: understanding (40%), practical application (40%), and clarity (20%)."
+      }
+    }
+  ]
+}
