@@ -1,38 +1,56 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useReducer, useRef, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useReducer, useRef, useState, type ReactNode } from 'react';
 import type { User, Role } from '@/data/users';
 import type { Question } from '@/data/learning';
 import { api, apiLogin, apiState, ApiError, errorMessage } from '@/lib/api';
 import { emptyLearning, initialState, reducer, type Action, type AppState, type Learning } from '@/lib/learnova-state';
 
-type Result = { ok: boolean; review?: Question[] };
+type Result = { ok: boolean; review?: Question[]; error?: string };
 type Context = {
   state: AppState; dispatch: (action: Action, file?: File) => Promise<Result>;
   user: User | null; learner: User; learning: Learning;
   login: (email: string, password: string, remember: boolean) => Promise<User>;
   register: (input: { name: string; email: string; password: string; role: Role; terms: boolean }) => Promise<User>;
   logout: () => Promise<boolean>; refresh: () => Promise<void>;
+  dataLoading: boolean; dataError: string;
 };
 const LearnovaContext = createContext<Context | null>(null);
 const guest: User = { id: '', name: '', email: '', role: 'student', phone: '', bio: '', avatar: '', status: 'Active', joined: new Date(0).toISOString() };
 
 export function LearnovaProvider({ children }: { children: ReactNode }) {
   const [state, reduce] = useReducer(reducer, undefined, initialState);
+  const [request, setRequest] = useState({ loading: true, error: '' });
   const version = useRef(0);
   const queue = useRef<Promise<unknown>>(Promise.resolve());
-  const refresh = useCallback(async () => {
+  const loadState = useCallback(async () => {
     const sequence = ++version.current;
-    const data = await apiState();
-    if (sequence === version.current) reduce({ type: 'hydrate', data, activeId: data.activeId });
+    try {
+      const data = await apiState();
+      if (sequence === version.current) {
+        reduce({ type: 'hydrate', data, activeId: data.activeId });
+        setRequest({ loading: false, error: '' });
+      }
+    } catch (error) {
+      if (sequence === version.current) {
+        const message = errorMessage(error);
+        reduce({ type: 'load-error', message });
+        setRequest({ loading: false, error: message });
+      }
+      throw error;
+    }
   }, []);
+  const refresh = useCallback(() => {
+    setRequest({ loading: true, error: '' });
+    return loadState();
+  }, [loadState]);
   useEffect(() => {
     try { localStorage.removeItem('learnova.frontend.v1'); localStorage.removeItem('learnova.session.v1'); sessionStorage.removeItem('learnova.session.v1'); } catch {}
-    void refresh().catch(error => { reduce({ type: 'hydrate', data: initialState(), activeId: null }); reduce({ type: 'warning', message: errorMessage(error) }); });
-    const sync = () => { void refresh().catch(error => reduce({ type: 'warning', message: errorMessage(error) })); };
+    void loadState().catch(() => {});
+    const sync = () => { void refresh().catch(() => {}); };
     window.addEventListener('focus', sync);
     return () => window.removeEventListener('focus', sync);
-  }, [refresh]);
+  }, [loadState, refresh]);
   async function login(email: string, password: string, remember: boolean) {
     const { user } = await apiLogin(email, password, remember); await refresh(); return user;
   }
@@ -81,8 +99,8 @@ export function LearnovaProvider({ children }: { children: ReactNode }) {
       } catch (error) {
         if (error instanceof ApiError && error.status === 401) await refresh().catch(() => {});
         reduce({ type: 'warning', message: errorMessage(error) });
-        if (typeof window !== 'undefined') window.alert(errorMessage(error));
-        return { ok: false };
+        if (action.type !== 'save-course' && typeof window !== 'undefined') window.alert(errorMessage(error));
+        return { ok: false, error: errorMessage(error) };
       }
     };
     const result = queue.current.then(run, run); queue.current = result; return result;
@@ -90,7 +108,7 @@ export function LearnovaProvider({ children }: { children: ReactNode }) {
   const user = state.users.find(u => u.id === state.activeId && u.status === 'Active') ?? null;
   const learner = user ?? guest;
   const learning = state.learning[learner.id] ?? emptyLearning();
-  return <LearnovaContext.Provider value={{ state, dispatch, user, learner, learning, login, register, logout, refresh }}>{children}</LearnovaContext.Provider>;
+  return <LearnovaContext.Provider value={{ state, dispatch, user, learner, learning, login, register, logout, refresh, dataLoading: request.loading, dataError: request.error }}>{children}</LearnovaContext.Provider>;
 }
 export function useLearnova() {
   const context = useContext(LearnovaContext);

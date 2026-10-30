@@ -143,7 +143,8 @@ try {
   await navigate("/instructor-dashboard/courses/create");
   await fill("Course Title", "Browser Check Course"); await fill("Description", "A practical course created during browser verification of the Learnova frontend.");
   await fill("Learning Outcomes", "Build a clear plan\nReview evidence");
-  await click("Create Course"); await until(() => evaluate("location.pathname === '/instructor-dashboard/courses'"), "course creation");
+  await fill("Lesson title", "Review the evidence"); await fill("Lesson content", "Compare the practical evidence with the learning goals and explain your conclusions.");
+  await click("Publish Course"); await until(() => evaluate("location.pathname === '/instructor-dashboard/courses'"), "course creation");
   saved = await data(); const created = saved.courses.find(c => c.title === "Browser Check Course"); assert(created);
   await navigate(`/instructor-dashboard/courses/${created.id}/edit`); await fill("Course Title", "Browser Check Course Updated"); await click("Save Changes");
   await until(async () => (await data()).courses.find(c => c.id === created.id)?.title === "Browser Check Course Updated", "course edit");

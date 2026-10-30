@@ -4,6 +4,7 @@ import { connectDatabase } from './config/database.js';
 import { models } from './models/index.js';
 import { createApp } from './app.js';
 import { describeStartupError } from './config/startup-errors.js';
+import { startAttemptExpiry } from './services/ai-attempts.js';
 
 let shuttingDown = false;
 mongoose.connection.on('error', error => console.error(`MongoDB: ${describeStartupError(error)}`));
@@ -22,8 +23,9 @@ try {
     server.once('error', reject);
   });
   console.log(`Learnova API listening on http://localhost:${config.PORT}; MongoDB connected (database: ${mongoose.connection.name})`);
+  const stopExpiry = startAttemptExpiry();
   server.on('error', error => console.error(`Backend: ${describeStartupError(error)}`));
-  const shutdown = () => { shuttingDown = true; server.close(async () => { await mongoose.disconnect(); process.exit(0); }); setTimeout(() => process.exit(1), 10000).unref(); };
+  const shutdown = () => { shuttingDown = true; stopExpiry(); server.close(async () => { await mongoose.disconnect(); process.exit(0); }); setTimeout(() => process.exit(1), 10000).unref(); };
   process.on('SIGTERM', shutdown); process.on('SIGINT', shutdown);
 } catch (error) {
   shuttingDown = true;

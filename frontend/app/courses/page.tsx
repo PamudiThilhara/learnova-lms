@@ -13,16 +13,17 @@ function Catalog() {
   return <CatalogFilters key={query.toString()} initialSearch={query.get("q") ?? ""} initialCategory={query.get("category") ?? "All"} />;
 }
 function CatalogFilters({ initialSearch, initialCategory }: { initialSearch: string; initialCategory: string }) {
-  const { state, learning } = useLearnova();
+  const { state, learning, dataLoading, dataError, refresh } = useLearnova();
   const [search, setSearch] = useState(initialSearch);
   const [category, setCategory] = useState(categories.some(c => c === initialCategory) ? initialCategory : "All");
   const [level, setLevel] = useState("All");
   const [sort, setSort] = useState("popular");
   const [filtersOpen, setFiltersOpen] = useState(true);
-  const filtered = state.courses.filter(course =>
+  const published = state.courses.filter(course => course.status !== 'draft');
+  const filtered = published.filter(course =>
     [course.title, course.description, course.instructor].join(" ").toLowerCase().includes(search.trim().toLowerCase()) &&
     (category === "All" || course.category === category) && (level === "All" || course.level === level)
-  ).sort((a, b) => sort === "rating" ? b.rating - a.rating : sort === "price" ? a.price - b.price : sort === "newest" ? state.courses.indexOf(b) - state.courses.indexOf(a) : b.students - a.students);
+  ).sort((a, b) => sort === "rating" ? b.rating - a.rating : sort === "price" ? a.price - b.price : sort === "newest" ? (Date.parse(b.createdAt ?? '') || 0) - (Date.parse(a.createdAt ?? '') || 0) : b.students - a.students);
   function reset() { setSearch(""); setCategory("All"); setLevel("All"); setSort("popular"); }
   return <>
     <section className="border-b border-white/10 bg-blue-500/10"><div className="container-page py-12"><PageHeader art="courses" title="Explore Courses" eyebrow="Find your next skill" description="Expert-led lessons and practical projects. Find a course that fits your goals." /></div></section>
@@ -37,8 +38,8 @@ function CatalogFilters({ initialSearch, initialCategory }: { initialSearch: str
           <div className="flex flex-wrap items-end gap-4"><label className="w-full sm:w-52"><span className="field-label">Level</span><select className="field" value={level} onChange={e => setLevel(e.target.value)}>{["All", ...levels].map(item => <option key={item}>{item}</option>)}</select></label><button className="btn-secondary" onClick={reset}><RotateCcw size={16} />Reset filters</button></div>
         </div>}
       </div>
-      <div className="my-7 flex flex-wrap items-center justify-between gap-4"><p className="text-sm text-slate-400" aria-live="polite"><span className="font-bold text-slate-100">{filtered.length}</span> courses found</p><label className="flex items-center gap-3 text-sm text-slate-400">Sort by<select className="field w-auto" value={sort} onChange={e => setSort(e.target.value)}><option value="popular">Most Popular</option><option value="rating">Highest Rated</option><option value="price">Lowest Price</option><option value="newest">Newest</option></select></label></div>
-      {filtered.length ? <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">{filtered.map(course => <CourseCard key={course.id} course={course} progress={learning.enrollments[course.id] ? progressFor(course, learning) : undefined} />)}</div> : <EmptyState title="No courses found" description="Try a different search, category, or level." />}
+      <div className="my-7 flex flex-wrap items-center justify-between gap-4"><p className="text-sm text-slate-400" aria-live="polite">{dataLoading ? 'Loading courses…' : dataError ? 'Course catalog unavailable' : <><span className="font-bold text-slate-100">{filtered.length}</span> courses found</>}</p><label className="flex items-center gap-3 text-sm text-slate-400">Sort by<select className="field w-auto" value={sort} onChange={e => setSort(e.target.value)}><option value="popular">Most Popular</option><option value="rating">Highest Rated</option><option value="price">Lowest Price</option><option value="newest">Newest</option></select></label></div>
+      {dataLoading ? <LoadingCards /> : dataError ? <div role="alert" className="panel px-6 py-14 text-center"><h2 className="text-xl font-bold text-slate-50">Unable to load courses</h2><p className="mx-auto mt-3 max-w-md text-slate-400">{dataError}</p><button className="btn-primary mt-6" onClick={() => { void refresh().catch(() => {}); }}>Try again</button></div> : filtered.length ? <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">{filtered.map(course => <CourseCard key={course.id} course={course} progress={learning.enrollments[course.id] ? progressFor(course, learning) : undefined} />)}</div> : published.length === 0 ? <EmptyState title="No courses available yet" description="Instructors haven’t added any courses yet. Please check back soon." /> : <EmptyState title="No courses found" description="Try a different search, category, or level." />}
     </section>
   </>;
 }

@@ -12,6 +12,8 @@ export function createApp(config, options = {}) {
   const app = express();
   app.locals.config = config; app.locals.mailEnv = options.env ?? process.env;
   app.locals.mailer = options.mailer;
+  app.locals.aiEnv = options.aiEnv ?? process.env;
+  app.locals.quizGenerator = options.quizGenerator;
   app.disable('x-powered-by');
   if (config.TRUST_PROXY === '1') app.set('trust proxy', 1);
   app.use(helmet());
@@ -26,7 +28,13 @@ export function createApp(config, options = {}) {
   app.use('/api', rateLimit({ windowMs: 60000, limit: config.NODE_ENV === 'test' ? 10000 : 300, standardHeaders: 'draft-8', legacyHeaders: false, message: { message: 'Too many requests. Please wait a moment.' } }));
   app.use(express.json({ limit: '2mb' }));
   app.use(cookieParser());
-  app.get('/api/health', (req, res) => res.status(mongoose.connection.readyState === 1 ? 200 : 503).json({ status: mongoose.connection.readyState === 1 ? 'ok' : 'unavailable', database: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected' }));
+  app.get('/api/health', async (req, res) => {
+    try {
+      if (mongoose.connection.readyState !== 1 || !mongoose.connection.db) throw new Error();
+      await mongoose.connection.db.command({ ping: 1 }, { timeoutMS: 3000 });
+      res.json({ status: 'ok', database: 'connected' });
+    } catch { res.status(503).json({ status: 'unavailable', database: 'disconnected' }); }
+  });
   app.use('/api', resolveSession, apiRouter(config));
   app.use((req, res, next) => next(new HttpError(404, 'API route not found.')));
   app.use(errorHandler);

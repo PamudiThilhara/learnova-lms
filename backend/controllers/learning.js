@@ -6,13 +6,13 @@ import { HttpError } from '../middleware/errors.js';
 import { identifier, answers, reflection, grade } from '../validators/index.js';
 
 export async function enroll(req, res) {
-  const course = await getCourse(req.params.id);
+  const course = await getCourse(req.params.id, req.user);
   const enrollment = await Enrollment.findOneAndUpdate({ userId: req.user._id, courseId: course._id }, { $setOnInsert: { completed: [] } }, { upsert: true, returnDocument: 'after', runValidators: true });
   await recordActivity(req.user._id, `${req.user.name} enrolled in ${course.title}`, course._id);
   res.status(201).json({ enrollment: publicRecord(enrollment) });
 }
 export async function complete(req, res) {
-  const course = await getCourse(req.params.id);
+  const course = await getCourse(req.params.id, req.user);
   const lessonId = identifier.parse(req.params.lessonId);
   if (!course.lessons.some(l => l.id === lessonId)) throw new HttpError(404, 'Lesson not found.');
   await requireEnrollment(req.user, course._id);
@@ -24,7 +24,7 @@ export async function complete(req, res) {
   res.json({ enrollment: publicRecord(await Enrollment.findById(enrollment._id)) });
 }
 export async function quiz(req, res) {
-  const course = await getCourse(req.params.id); await requireEnrollment(req.user, course._id);
+  const course = await getCourse(req.params.id, req.user); await requireEnrollment(req.user, course._id);
   const data = answers.parse(req.body);
   if (!course.quiz.length || data.answers.length !== course.quiz.length) throw new HttpError(422, 'Answer every quiz question.');
   const correct = course.quiz.filter((q, i) => q.answer === data.answers[i]).length;
@@ -40,7 +40,7 @@ function validateFile(file) {
   if (!valid) throw new HttpError(422, 'The attachment contents do not match a supported file type.');
 }
 export async function submit(req, res) {
-  const course = await getCourse(req.params.id); await requireEnrollment(req.user, course._id);
+  const course = await getCourse(req.params.id, req.user); await requireEnrollment(req.user, course._id);
   const text = reflection.parse(req.body.text);
   validateFile(req.file);
   const old = await Submission.findOne({ userId: req.user._id, courseId: course._id });
@@ -54,7 +54,7 @@ export async function submit(req, res) {
   res.json({ submission: publicRecord(submission) });
 }
 export async function gradeSubmission(req, res) {
-  const course = await getCourse(req.params.id); requireOwner(req.user, course);
+  const course = await getCourse(req.params.id, req.user); requireOwner(req.user, course);
   const userId = identifier.parse(req.params.userId); const data = grade.parse(req.body);
   const submission = await Submission.findOneAndUpdate({ userId, courseId: course._id }, { $set: { ...data, status: 'Graded' } }, { returnDocument: 'after', runValidators: true });
   if (!submission) throw new HttpError(404, 'Submission not found.');
@@ -62,7 +62,7 @@ export async function gradeSubmission(req, res) {
   res.json({ submission: publicRecord(submission) });
 }
 export async function attachment(req, res) {
-  const course = await getCourse(req.params.id); const userId = identifier.parse(req.params.userId);
+  const course = await getCourse(req.params.id, req.user); const userId = identifier.parse(req.params.userId);
   if (req.user._id !== userId) requireOwner(req.user, course);
   const submission = await Submission.findOne({ userId, courseId: course._id }).select('+fileData +fileType');
   if (!submission?.fileData) throw new HttpError(404, 'Attachment not found.');
@@ -71,7 +71,7 @@ export async function attachment(req, res) {
   res.send(Buffer.from(submission.fileData));
 }
 export async function certificate(req, res) {
-  const course = await getCourse(req.params.id); const enrollment = await requireEnrollment(req.user, course._id);
+  const course = await getCourse(req.params.id, req.user); const enrollment = await requireEnrollment(req.user, course._id);
   const [attempt, submission] = await Promise.all([QuizAttempt.findOne({ userId: req.user._id, courseId: course._id }), Submission.findOne({ userId: req.user._id, courseId: course._id })]);
   if (!course.lessons.every(l => enrollment.completed.includes(l.id)) || !attempt || attempt.score < 70 || !submission) throw new HttpError(403, 'Complete every lesson, pass the quiz, and submit the assignment first.');
   res.json({ certificate: { id: `LN-${course._id}-${req.user._id}`, student: req.user.name, course: course.title, completedAt: enrollment.completedAt, score: attempt.score } });

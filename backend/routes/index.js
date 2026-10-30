@@ -4,12 +4,15 @@ import { rateLimit } from 'express-rate-limit';
 import * as auth from '../controllers/auth.js';
 import * as courses from '../controllers/courses.js';
 import * as learning from '../controllers/learning.js';
+import * as lessonVideo from '../controllers/lesson-video.js';
 import * as admin from '../controllers/admin.js';
 import { requireAuth, roles } from '../services/auth.js';
 import { stateFor, publicUser } from '../services/state.js';
+import { aiQuizRouter } from './ai-quizzes.js';
 
 export function apiRouter(config) {
   const router = Router();
+  router.use('/ai-quizzes', aiQuizRouter(config));
   const authLimit = rateLimit({ windowMs: 15 * 60000, limit: config.NODE_ENV === 'test' ? 500 : 30, standardHeaders: 'draft-8', legacyHeaders: false, message: { message: 'Too many attempts. Please try again later.' } });
   const contactLimit = rateLimit({ windowMs: 3600000, limit: config.NODE_ENV === 'test' ? 500 : 10, standardHeaders: 'draft-8', legacyHeaders: false, message: { message: 'Too many messages. Please try again later.' } });
   const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024, files: 1, fields: 3, fieldSize: 60000 } });
@@ -27,6 +30,7 @@ export function apiRouter(config) {
   router.put('/courses/:id', roles('instructor', 'admin'), courses.update);
   router.delete('/courses/:id', roles('instructor', 'admin'), courses.remove);
   router.post('/courses/:id/enrollments', roles('student'), learning.enroll);
+  router.get('/courses/:id/lessons/:lessonId/video', requireAuth, lessonVideo.get);
   router.put('/courses/:id/lessons/:lessonId/completion', roles('student'), learning.complete);
   router.post('/courses/:id/quiz-attempts', roles('student'), learning.quiz);
   router.put('/courses/:id/submission', roles('student'), upload.single('file'), learning.submit);

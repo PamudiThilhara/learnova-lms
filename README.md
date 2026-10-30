@@ -1,3 +1,5 @@
+> **October 30, 2026 update:** The local application now has a complete dark theme and a student AI PDF Quiz Generator. See [REDESIGN.md](REDESIGN.md) for implementation details, API/model additions, executed tests, external setup requirements, and exact run commands. `backend/.env` was preserved.
+
 # Learnova
 
 Learnova's existing Next.js 16 / React 19 interface now uses an Express 5 REST API and MongoDB through Mongoose. Existing routes, components, CSS, images, fonts, spacing, and navigation are retained. Frontend changes connect forms and state to the API, enforce sign-in, and correct preview text about storage and authentication. No UI library was added.

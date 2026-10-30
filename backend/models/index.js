@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import { randomUUID } from 'node:crypto';
+import { aiModels } from './ai-quiz.js';
 
 const { Schema } = mongoose;
 const options = { timestamps: true, versionKey: false, autoCreate: false, autoIndex: false };
@@ -15,12 +16,15 @@ const userSchema = new Schema({
   avatar: { type: String, default: '' }, joined: { type: Date, default: Date.now },
   resetHash: { type: String, select: false }, resetExpires: { type: Date, select: false },
 }, options);
-const lesson = new Schema({ id: text(100), title: text(), duration: text(100), content: text(50000), exercise: { type: String, maxlength: 10000, default: '' } }, { _id: false });
+const lessonVideo = new Schema({ provider: { type: String, enum: ['youtube'], required: true }, videoId: { type: String, match: /^[A-Za-z0-9_-]{11}$/, required: true } }, { _id: false });
+const lesson = new Schema({ id: text(100), title: text(), duration: text(100), content: text(50000), exercise: { type: String, maxlength: 10000, default: '' }, video: { type: lessonVideo, default: undefined } }, { _id: false });
 const question = new Schema({ question: text(2000), options: { type: [String], validate: v => v.length === 4 && v.every(s => s.trim().length > 0) }, answer: { type: Number, min: 0, max: 3, required: true }, explanation: text(5000) }, { _id: false });
 const courseSchema = new Schema({
   _id: id(), title: text(), description: text(20000), image: text(750000), instructorId: ref('User'),
   category: { type: String, enum: ['Programming', 'Design', 'Marketing', 'Business', 'Data Science', 'Personal Development'], required: true, index: true },
   level: { type: String, enum: ['Beginner', 'Intermediate', 'Advanced'], required: true },
+  // Existing courses and older API clients retain their public visibility.
+  status: { type: String, enum: ['draft', 'published'], default: 'published' },
   rating: { type: Number, default: 0, min: 0, max: 5 }, duration: text(100), price: { type: Number, min: 0, required: true },
   outcomes: { type: [String], validate: v => v.length > 0 },
   lessons: { type: [lesson], validate: v => v.length > 0 && new Set(v.map(l => l.id)).size === v.length },
@@ -50,4 +54,4 @@ export const Session = mongoose.model('Session', sessionSchema);
 export const Setting = mongoose.model('Setting', new Schema({ _id: { type: String, default: 'platform' }, notifications: { type: Boolean, default: true }, weeklyDigest: { type: Boolean, default: true } }, options));
 export const Activity = mongoose.model('Activity', new Schema({ _id: id(), actorId: ref('User'), courseId: { type: String, ref: 'Course' }, message: text(500) }, options));
 export const ContactMessage = mongoose.model('ContactMessage', new Schema({ _id: id(), name: text(), email: text(254), subject: text(300), message: text(20000) }, options));
-export const models = [User, Course, Enrollment, QuizAttempt, Submission, Session, Setting, Activity, ContactMessage];
+export const models = [User, Course, Enrollment, QuizAttempt, Submission, Session, Setting, Activity, ContactMessage, ...aiModels];

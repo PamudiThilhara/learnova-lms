@@ -3,6 +3,7 @@ import { HttpError } from '../middleware/errors.js';
 import { identifier, settings, contact } from '../validators/index.js';
 import { publicUser, publicRecord } from '../services/state.js';
 import { seedCatalog } from '../services/seed.js';
+import { aiModels } from '../models/ai-quiz.js';
 export async function userStatus(req, res) {
   const user = await User.findById(identifier.parse(req.params.id));
   if (!user) throw new HttpError(404, 'User not found.');
@@ -17,7 +18,7 @@ export async function deleteUser(req, res) {
   if (id === req.user._id || user.role === 'admin') throw new HttpError(403, 'Administrator accounts cannot be deleted here.');
   if (await Course.exists({ instructorId: id })) throw new HttpError(409, 'Remove this instructor’s courses before deleting their account.');
   await User.deleteOne({ _id: id });
-  await Promise.all([Enrollment, QuizAttempt, Submission, Session].map(m => m.deleteMany({ userId: id })));
+  await Promise.all([Enrollment, QuizAttempt, Submission, Session, ...aiModels].map(m => m.deleteMany({ userId: id })));
   await Activity.deleteMany({ actorId: id }); res.status(204).end();
 }
 export async function saveSettings(req, res) {

@@ -1,9 +1,10 @@
 import { Course, Enrollment } from '../models/index.js';
 import { identifier } from '../validators/index.js';
 import { HttpError } from '../middleware/errors.js';
-export async function getCourse(id) {
+export async function getCourse(id, user) {
   const course = await Course.findById(identifier.parse(id));
   if (!course) throw new HttpError(404, 'Course not found.');
+  if (course.status === 'draft' && user?.role !== 'admin' && user?._id !== course.instructorId) throw new HttpError(404, 'Course not found.');
   return course;
 }
 export function requireOwner(user, course) {

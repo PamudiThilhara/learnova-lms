@@ -1,10 +1,14 @@
 export type Category = "Programming" | "Design" | "Marketing" | "Business" | "Data Science" | "Personal Development";
 export type Level = "Beginner" | "Intermediate" | "Advanced";
-export type Lesson = { id: string; title: string; duration: string; content: string; exercise: string };
+export type LessonVideo = { provider: "youtube"; videoId: string };
+export type Lesson = { id: string; title: string; duration: string; content: string; exercise: string; video?: LessonVideo | null; hasVideo?: boolean };
 export type Course = {
   id: string; title: string; image: string; instructor: string; instructorId: string;
   category: Category; level: Level; rating: number; students: number; duration: string;
   description: string; price: number; outcomes: string[]; lessons: Lesson[];
+  createdAt?: string;
+  updatedAt?: string;
+  status?: "draft" | "published";
   quiz?: { question: string; options: string[]; answer: number; explanation: string }[];
   assignment?: { title: string; instructions: string; due: string };
 };

@@ -39,6 +39,16 @@ before(async () => {
 after(async () => { await mongoose.disconnect(); if (mongo) await mongo.stop(); });
 
 test('health checks the real MongoDB connection', async () => { const r = await request(app).get('/api/health').expect(200); assert.equal(r.body.database, 'connected'); });
+
+test('health fails when a connected driver cannot ping MongoDB', async () => {
+  const db = mongoose.connection.db;
+  const command = db.command;
+  try {
+    db.command = async () => { throw new Error('Synthetic database outage'); };
+    const response = await request(app).get('/api/health').expect(503);
+    assert.deepEqual(response.body, { status: 'unavailable', database: 'disconnected' });
+  } finally { db.command = command; }
+});
 test('server.js starts with environment configuration and reports MongoDB readiness', async () => {
   const probe = createServer(); await new Promise(resolve => probe.listen(0, '127.0.0.1', resolve));
   const port = probe.address().port; await new Promise(resolve => probe.close(resolve));
@@ -67,6 +77,16 @@ test('CSRF, origin checks, injection validation and role boundaries', async () =
   await request(app).get('/api/auth/me').expect(401);
   const r = await request(app).get('/api/state').expect(200); assert.deepEqual(r.body.users, []); assert.deepEqual(r.body.learning, {});
 });
+test('an empty public catalog succeeds with the configured CORS origin', async () => {
+  const origin = app.locals.config.origins[0];
+  const response = await request(app).get('/api/courses').set('Origin', origin).expect(200);
+  assert.deepEqual(response.body, { courses: [] });
+  assert.equal(response.headers['access-control-allow-origin'], origin);
+  assert.equal(response.headers['access-control-allow-credentials'], 'true');
+  const state = await request(app).get('/api/state').expect(200);
+  assert.deepEqual(state.body.courses, []);
+});
+
 test('course creation, search, updates, ownership and answer redaction', async () => {
   const r = await send(instructor, 'post', '/courses').send({ ...payload, instructorId: 'fake-user', rating: 5 }).expect(201); courseId = r.body.course.id;
   assert.equal((await Course.findById(courseId)).instructorId, instructorId);
@@ -75,6 +95,19 @@ test('course creation, search, updates, ownership and answer redaction', async (
   const publicCourse = await request(app).get(`/api/courses/${courseId}`).expect(200); assert.equal(publicCourse.body.course.quiz[0].answer, -1); assert.equal(publicCourse.body.course.quiz[0].explanation, '');
   const own = await instructor.get(`/api/courses/${courseId}`).expect(200); assert.equal(own.body.course.quiz[0].answer, 0);
   const list = await request(app).get('/api/courses?q=integration&category=Programming').expect(200); assert.equal(list.body.courses.length, 1);
+  // Creating a course publishes it immediately in the existing LMS; no draft flag is required.
+  const catalog = await request(app).get('/api/state').expect(200);
+  assert.equal(catalog.body.courses.find(c => c.id === courseId)?.title, payload.title);
+  assert.equal(list.body.courses[0].instructor, 'Test Instructor');
+  assert.equal(list.body.courses[0].students, 0);
+  assert.equal(list.body.courses[0].rating, 0);
+  assert(list.body.courses[0].createdAt);
+  const level = await request(app).get('/api/courses?level=Advanced').expect(200);
+  assert.deepEqual(level.body.courses, []);
+  const category = await request(app).get('/api/courses?category=Design').expect(200);
+  assert.deepEqual(category.body.courses, []);
+  const combined = await request(app).get('/api/courses?q=INTEGRATION&category=Programming&level=Beginner').expect(200);
+  assert.equal(combined.body.courses[0].id, courseId);
   await send(instructor, 'put', `/courses/${courseId}`).send({ ...payload, title: 'Updated course' }).expect(200);
 });
 test('enrollment is idempotent and server validates lesson IDs and enrollment', async () => {

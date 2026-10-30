@@ -9,12 +9,20 @@ export const publicRecord = record => {
   return { ...rest, id: _id };
 };
 export async function visibleCourses(user, filter = {}) {
-  const courses = await Course.find(filter).lean();
+  const visibility = user?.role === 'admin' ? {} : { $or: [
+    { status: 'published' }, { status: { $exists: false } },
+    ...(user?.role === 'instructor' ? [{ instructorId: user._id }] : []),
+  ] };
+  const courses = await Course.find({ $and: [filter, visibility] }).lean();
   const instructors = await User.find({ _id: { $in: courses.map(c => c.instructorId) } }).select('name').lean();
   const counts = await Enrollment.aggregate([{ $group: { _id: '$courseId', total: { $sum: 1 } } }]);
   return courses.map(c => {
     const own = user && (user.role === 'admin' || user._id === c.instructorId);
     return { ...publicRecord(c), instructor: instructors.find(u => u._id === c.instructorId)?.name ?? 'Instructor', students: counts.find(n => n._id === c._id)?.total ?? 0,
+      lessons: (c.lessons ?? []).map(lesson => {
+        const { video, ...details } = lesson;
+        return { ...details, hasVideo: Boolean(video), ...(own && video ? { video } : {}) };
+      }),
       quiz: (c.quiz ?? []).map(q => own ? q : { question: q.question, options: q.options, answer: -1, explanation: '' }) };
   });
 }

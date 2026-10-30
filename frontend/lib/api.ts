@@ -17,6 +17,12 @@ export async function api<T = Record<string, never>>(path: string, options: Requ
   if (!response.ok) throw new ApiError(response.status, data.errors?.map((e: { message: string }) => e.message).join(' ') || data.message || 'The request could not be completed.');
   return data as T;
 }
-export const apiState = () => api<DemoData & { activeId: string | null }>('/state');
+export const apiState = async () => {
+  const data = await api<DemoData & { activeId: string | null }>('/state');
+  if (!data || !Array.isArray(data.courses) || !Array.isArray(data.users) || !data.learning || !data.settings) {
+    throw new ApiError(502, 'Learnova returned an invalid response. Check the backend API configuration and try again.');
+  }
+  return data;
+};
 export const apiLogin = (email: string, password: string, remember: boolean) => api<{ user: User }>('/auth/login', { method: 'POST', body: JSON.stringify({ email, password, remember }) });
 export const errorMessage = (error: unknown) => error instanceof Error ? error.message : 'The request could not be completed.';
