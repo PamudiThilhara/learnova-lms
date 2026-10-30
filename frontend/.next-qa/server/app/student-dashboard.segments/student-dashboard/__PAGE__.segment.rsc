@@ -1,0 +1,20 @@
+1:"$Sreact.fragment"
+2:I[24822,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js","/_next/static/chunks/3hf6yig4rxu2f.js","/_next/static/chunks/2-qvm8gxer5c4.js"],"default"]
+3:I[97367,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[97367,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"ViewportBoundary"]
+9:I[97367,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"MetadataBoundary"]
+a:I[27201,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"IconMark"]
+c:I[26880,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js","/_next/static/chunks/3hf6yig4rxu2f.js"],"default"]
+d:I[39756,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"default"]
+e:I[37457,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"default"]
+7:X
+0:{"buildId":"TWf70YOjBW00zg1Tn-Pnd","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/_next/static/chunks/2-qvm8gxer5c4.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Learnova — Learn Without Limits"}],["$","meta","1",{"name":"description","content":"Expert-led courses, practical projects, and a complete university learning experience."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$La","3",{}]]}]}]}],null]}],"isPartial":"$@b","staleTime":"$7","varyParams":null},{"rsc":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/3hf6yig4rxu2f.js","async":true}]],["$","$Lc",null,{"role":"student","children":["$","$Ld",null,{"parallelRouterKey":"children","template":["$","$Le",null,{}]}]}]]}],"isPartial":"$@f","staleTime":"$7","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@10","rootVaryParams":null,"needsRuntimeRequest":"$@11"}
+5:null
+11:true
+7:300
+7:C
+10:0
+b:"$undefined"
+f:"$undefined"
+6:"$undefined"

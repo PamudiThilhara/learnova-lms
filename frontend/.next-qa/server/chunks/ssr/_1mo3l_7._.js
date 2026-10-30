@@ -1,0 +1,3 @@
+module.exports=[15794,a=>{"use strict";var b=a.i(7997),c=a.i(68999);a.s(["default",0,function({children:a}){return(0,b.jsx)(c.default,{role:"student",children:a})}])},71425,function(a){a.n(a.i(15794))},66118,a=>{"use strict";a.s(["default",()=>b]);let b=(0,a.i(11857).registerClientReference)(function(){throw Error("Attempted to call the default export of [project]/components/layout/DashboardShell.tsx from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.")},"[project]/components/layout/DashboardShell.tsx","default")},68999,a=>{"use strict";var b=a.i(66118);a.n(b)}];
+
+//# sourceMappingURL=_1mo3l_7._.js.map

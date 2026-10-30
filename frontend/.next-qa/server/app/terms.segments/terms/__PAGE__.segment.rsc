@@ -1,0 +1,20 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+7:I[97367,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"ViewportBoundary"]
+8:I[97367,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"MetadataBoundary"]
+9:I[27201,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"IconMark"]
+b:I[39756,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"default"]
+c:I[37457,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"default"]
+6:X
+e:X
+e:C
+0:{"buildId":"TWf70YOjBW00zg1Tn-Pnd","data":[{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"container-page max-w-3xl py-12","children":[["$","div",null,{"className":"mb-8 flex flex-wrap items-start justify-between gap-4","children":[["$","div",null,{"children":["$undefined",["$","h1",null,{"className":"text-3xl font-bold tracking-tight text-slate-50 md:text-4xl","children":"Terms and Conditions"}],["$","p",null,{"className":"mt-3 max-w-2xl leading-7 text-slate-400","children":"Usage guidelines for Learnova."}]]}],"$undefined"]}],["$","article",null,{"className":"panel space-y-7 p-7","children":[["$","section",null,{"children":[["$","h2",null,{"className":"section-title","children":"Using Learnova"}],["$","p",null,{"className":"mt-3 leading-8 text-slate-400","children":"Learnova provides course browsing, learning and course management. Enrollment, progress and grades are saved to your account. No purchases are processed; completion certificates are not academic credentials."}]]}],["$","section",null,{"children":[["$","h2",null,{"className":"section-title","children":"Accounts and content"}],["$","p",null,{"className":"mt-3 leading-8 text-slate-400","children":"Keep your account credentials private and upload only content you have permission to share. Changes are saved to the platform database. Contact the platform operator for account and content requests."}]]}],["$","section",null,{"children":[["$","h2",null,{"className":"section-title","children":"Before public launch"}],["$","p",null,{"className":"mt-3 leading-8 text-slate-400","children":"Institution-specific terms, university policies, support details and retention policies must be supplied by the operator before public launch."}]]}]]}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":"$@5","staleTime":"$6","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L7",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L8",null,{"children":["$","$3",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Learnova — Learn Without Limits"}],["$","meta","1",{"name":"description","content":"Expert-led courses, practical projects, and a complete university learning experience."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L9","3",{}]]}]}]}],null]}],"isPartial":"$@a","staleTime":"$6","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$Lb",null,{"parallelRouterKey":"children","template":["$","$Lc",null,{}]}]]}],"isPartial":"$@d","staleTime":"$6","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@f","rootVaryParams":null,"needsRuntimeRequest":"$@10"}
+4:null
+10:true
+6:300
+6:C
+f:0
+a:"$undefined"
+d:"$undefined"
+5:"$undefined"

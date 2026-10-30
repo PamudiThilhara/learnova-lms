@@ -1,0 +1,19 @@
+1:"$Sreact.fragment"
+2:I[47257,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"ClientPageRoot"]
+3:I[31713,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js","/_next/static/chunks/3csvpmdfp5a_u.js"],"default"]
+6:I[97367,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+b:I[97367,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"ViewportBoundary"]
+c:I[97367,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"MetadataBoundary"]
+d:I[27201,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"IconMark"]
+a:X
+0:{"buildId":"TWf70YOjBW00zg1Tn-Pnd","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/_next/static/chunks/3csvpmdfp5a_u.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":"$@9","staleTime":"$a","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$Lb",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$Lc",null,{"children":["$","$7",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Learnova — Learn Without Limits"}],["$","meta","1",{"name":"description","content":"Expert-led courses, practical projects, and a complete university learning experience."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$Ld","3",{}]]}]}]}],null]}],"isPartial":"$@e","staleTime":"$a","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@f","rootVaryParams":null,"needsRuntimeRequest":"$@10"}
+4:{}
+5:"$0:data:0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null
+10:true
+a:300
+a:C
+f:0
+e:"$undefined"
+9:"$undefined"

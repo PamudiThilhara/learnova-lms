@@ -1,0 +1,3 @@
+module.exports=[3171,a=>{"use strict";var b=a.i(87924);a.s(["default",0,function({retry:a}){return(0,b.jsx)("html",{lang:"en",children:(0,b.jsxs)("body",{style:{margin:0,padding:"4rem 1rem",background:"#0B0F1A",color:"#F8FAFC",fontFamily:"Segoe UI, sans-serif",textAlign:"center"},children:[(0,b.jsx)("h1",{children:"Learnova could not start."}),(0,b.jsx)("p",{children:"Please try again to return to your learning workspace."}),(0,b.jsx)("button",{style:{padding:"12px 24px",background:"linear-gradient(115deg, #3B82F6, #8B5CF6)",color:"white",border:0,borderRadius:12,cursor:"pointer"},onClick:a,children:"Try Again"})]})})}])}];
+
+//# sourceMappingURL=app_global-error_tsx_1kp6l3x._.js.map

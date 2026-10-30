@@ -1,0 +1,393 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "onMatchHeaders": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/admin-dashboard/users/[id]",
+      "regex": "^/admin\\-dashboard/users/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/admin\\-dashboard/users/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/assignment/[id]",
+      "regex": "^/assignment/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/assignment/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/certificate/[id]",
+      "regex": "^/certificate/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/certificate/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/courses/[id]",
+      "regex": "^/courses/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/courses/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/courses/[id]/assignment",
+      "regex": "^/courses/([^/]+?)/assignment(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/courses/(?<nxtPid>[^/]+?)/assignment(?:/)?$"
+    },
+    {
+      "page": "/courses/[id]/certificate",
+      "regex": "^/courses/([^/]+?)/certificate(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/courses/(?<nxtPid>[^/]+?)/certificate(?:/)?$"
+    },
+    {
+      "page": "/courses/[id]/learn",
+      "regex": "^/courses/([^/]+?)/learn(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/courses/(?<nxtPid>[^/]+?)/learn(?:/)?$"
+    },
+    {
+      "page": "/courses/[id]/lessons/[lessonId]",
+      "regex": "^/courses/([^/]+?)/lessons/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid",
+        "nxtPlessonId": "nxtPlessonId"
+      },
+      "namedRegex": "^/courses/(?<nxtPid>[^/]+?)/lessons/(?<nxtPlessonId>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/courses/[id]/quiz",
+      "regex": "^/courses/([^/]+?)/quiz(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/courses/(?<nxtPid>[^/]+?)/quiz(?:/)?$"
+    },
+    {
+      "page": "/instructor-dashboard/courses/[id]/assignment",
+      "regex": "^/instructor\\-dashboard/courses/([^/]+?)/assignment(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/instructor\\-dashboard/courses/(?<nxtPid>[^/]+?)/assignment(?:/)?$"
+    },
+    {
+      "page": "/instructor-dashboard/courses/[id]/edit",
+      "regex": "^/instructor\\-dashboard/courses/([^/]+?)/edit(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/instructor\\-dashboard/courses/(?<nxtPid>[^/]+?)/edit(?:/)?$"
+    },
+    {
+      "page": "/instructor-dashboard/courses/[id]/quiz",
+      "regex": "^/instructor\\-dashboard/courses/([^/]+?)/quiz(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/instructor\\-dashboard/courses/(?<nxtPid>[^/]+?)/quiz(?:/)?$"
+    },
+    {
+      "page": "/quiz/[id]",
+      "regex": "^/quiz/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/quiz/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/student-dashboard/ai-quizzes/attempts/[id]",
+      "regex": "^/student\\-dashboard/ai\\-quizzes/attempts/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/student\\-dashboard/ai\\-quizzes/attempts/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/student-dashboard/ai-quizzes/attempts/[id]/results",
+      "regex": "^/student\\-dashboard/ai\\-quizzes/attempts/([^/]+?)/results(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/student\\-dashboard/ai\\-quizzes/attempts/(?<nxtPid>[^/]+?)/results(?:/)?$"
+    },
+    {
+      "page": "/student-dashboard/ai-quizzes/documents/[id]",
+      "regex": "^/student\\-dashboard/ai\\-quizzes/documents/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/student\\-dashboard/ai\\-quizzes/documents/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/student-dashboard/ai-quizzes/quizzes/[id]",
+      "regex": "^/student\\-dashboard/ai\\-quizzes/quizzes/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/student\\-dashboard/ai\\-quizzes/quizzes/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about",
+      "regex": "^/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about(?:/)?$"
+    },
+    {
+      "page": "/admin-dashboard",
+      "regex": "^/admin\\-dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin\\-dashboard(?:/)?$"
+    },
+    {
+      "page": "/admin-dashboard/courses",
+      "regex": "^/admin\\-dashboard/courses(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin\\-dashboard/courses(?:/)?$"
+    },
+    {
+      "page": "/admin-dashboard/enrollments",
+      "regex": "^/admin\\-dashboard/enrollments(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin\\-dashboard/enrollments(?:/)?$"
+    },
+    {
+      "page": "/admin-dashboard/instructors",
+      "regex": "^/admin\\-dashboard/instructors(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin\\-dashboard/instructors(?:/)?$"
+    },
+    {
+      "page": "/admin-dashboard/reports",
+      "regex": "^/admin\\-dashboard/reports(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin\\-dashboard/reports(?:/)?$"
+    },
+    {
+      "page": "/admin-dashboard/settings",
+      "regex": "^/admin\\-dashboard/settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin\\-dashboard/settings(?:/)?$"
+    },
+    {
+      "page": "/admin-dashboard/students",
+      "regex": "^/admin\\-dashboard/students(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin\\-dashboard/students(?:/)?$"
+    },
+    {
+      "page": "/admin-dashboard/users",
+      "regex": "^/admin\\-dashboard/users(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin\\-dashboard/users(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/courses",
+      "regex": "^/courses(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/courses(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/forgot-password",
+      "regex": "^/forgot\\-password(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/forgot\\-password(?:/)?$"
+    },
+    {
+      "page": "/instructor-dashboard",
+      "regex": "^/instructor\\-dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/instructor\\-dashboard(?:/)?$"
+    },
+    {
+      "page": "/instructor-dashboard/assignments",
+      "regex": "^/instructor\\-dashboard/assignments(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/instructor\\-dashboard/assignments(?:/)?$"
+    },
+    {
+      "page": "/instructor-dashboard/courses",
+      "regex": "^/instructor\\-dashboard/courses(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/instructor\\-dashboard/courses(?:/)?$"
+    },
+    {
+      "page": "/instructor-dashboard/courses/create",
+      "regex": "^/instructor\\-dashboard/courses/create(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/instructor\\-dashboard/courses/create(?:/)?$"
+    },
+    {
+      "page": "/instructor-dashboard/quizzes",
+      "regex": "^/instructor\\-dashboard/quizzes(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/instructor\\-dashboard/quizzes(?:/)?$"
+    },
+    {
+      "page": "/instructor-dashboard/students",
+      "regex": "^/instructor\\-dashboard/students(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/instructor\\-dashboard/students(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/privacy",
+      "regex": "^/privacy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy(?:/)?$"
+    },
+    {
+      "page": "/profile",
+      "regex": "^/profile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/profile(?:/)?$"
+    },
+    {
+      "page": "/register",
+      "regex": "^/register(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/register(?:/)?$"
+    },
+    {
+      "page": "/student-dashboard",
+      "regex": "^/student\\-dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/student\\-dashboard(?:/)?$"
+    },
+    {
+      "page": "/student-dashboard/ai-quizzes",
+      "regex": "^/student\\-dashboard/ai\\-quizzes(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/student\\-dashboard/ai\\-quizzes(?:/)?$"
+    },
+    {
+      "page": "/student-dashboard/ai-quizzes/history",
+      "regex": "^/student\\-dashboard/ai\\-quizzes/history(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/student\\-dashboard/ai\\-quizzes/history(?:/)?$"
+    },
+    {
+      "page": "/student-dashboard/assignments",
+      "regex": "^/student\\-dashboard/assignments(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/student\\-dashboard/assignments(?:/)?$"
+    },
+    {
+      "page": "/student-dashboard/certificates",
+      "regex": "^/student\\-dashboard/certificates(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/student\\-dashboard/certificates(?:/)?$"
+    },
+    {
+      "page": "/student-dashboard/courses",
+      "regex": "^/student\\-dashboard/courses(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/student\\-dashboard/courses(?:/)?$"
+    },
+    {
+      "page": "/student-dashboard/progress",
+      "regex": "^/student\\-dashboard/progress(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/student\\-dashboard/progress(?:/)?$"
+    },
+    {
+      "page": "/student-dashboard/quizzes",
+      "regex": "^/student\\-dashboard/quizzes(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/student\\-dashboard/quizzes(?:/)?$"
+    },
+    {
+      "page": "/terms",
+      "regex": "^/terms(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/terms(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

@@ -12,9 +12,9 @@ export type Course = {
 export const categories: Category[] = ["Programming", "Design", "Marketing", "Business", "Data Science", "Personal Development"];
 export const levels: Level[] = ["Beginner", "Intermediate", "Advanced"];
 export const categoryImages: Record<Category, string> = {
-  Programming: "/images/python.jpg", Design: "/images/ux-design.jpg",
-  Marketing: "/images/digital-marketing.jpg", Business: "/images/digital-marketing.jpg",
-  "Data Science": "/images/python.jpg", "Personal Development": "/images/ux-design.jpg",
+  Programming: "/images/03_courses.png", Design: "/images/03_courses.png",
+  Marketing: "/images/03_courses.png", Business: "/images/03_courses.png",
+  "Data Science": "/images/03_courses.png", "Personal Development": "/images/03_courses.png",
 };
 
 const pythonContent = [

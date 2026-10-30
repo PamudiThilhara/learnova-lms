@@ -1,0 +1,22 @@
+1:"$Sreact.fragment"
+2:I[5014,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"default"]
+3:I[22016,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],""]
+4:I[97367,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+9:I[97367,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"ViewportBoundary"]
+a:I[97367,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"MetadataBoundary"]
+b:I[27201,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"IconMark"]
+d:I[39756,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"default"]
+e:I[37457,["/_next/static/chunks/3x7dfa925t3qb.js","/_next/static/chunks/0klwerw0dpdia.js"],"default"]
+8:X
+10:X
+10:C
+0:{"buildId":"TWf70YOjBW00zg1Tn-Pnd","data":[{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"container-page py-20 text-center","children":[["$","p",null,{"className":"text-7xl font-bold text-blue-200","children":"404"}],["$","$L2",null,{"icon":{"name":"book-open","size":24,"node":[["path",{"d":"M12 5v16","key":"1f6ucr"}],["path",{"d":"M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z","key":"1fyvmf"}]]},"className":"mx-auto mt-7 text-blue-400","size":42}],["$","h1",null,{"className":"mt-5 text-3xl font-bold text-slate-50","children":"This page took a study break."}],["$","p",null,{"className":"mx-auto mt-4 max-w-md leading-7 text-slate-400","children":"The page or course you are looking for could not be found. Let's get you back to learning."}],["$","div",null,{"className":"mt-7 flex flex-wrap justify-center gap-3","children":[["$","$L3",null,{"className":"btn-primary","href":"/","children":[["$","$L2",null,{"icon":{"name":"arrow-left","size":24,"node":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]]},"size":16}],"Go Home"]}],["$","$L3",null,{"className":"btn-secondary","href":"/courses","children":"Explore Courses"}]]}]]}],null,["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":"$@7","staleTime":"$8","varyParams":null},{"rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L9",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$La",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Learnova — Learn Without Limits"}],["$","meta","1",{"name":"description","content":"Expert-led courses, practical projects, and a complete university learning experience."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$Lb","3",{}]]}]}]}],null]}],"isPartial":"$@c","staleTime":"$8","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$Ld",null,{"parallelRouterKey":"children","template":["$","$Le",null,{}]}]]}],"isPartial":"$@f","staleTime":"$8","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+6:null
+12:true
+8:300
+8:C
+11:0
+c:"$undefined"
+f:"$undefined"
+7:"$undefined"
